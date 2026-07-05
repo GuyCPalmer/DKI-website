@@ -26,6 +26,7 @@ html{scroll-behavior:smooth;font-size:16px}
   --border:rgba(92,74,52,0.12);
   --border2:rgba(92,74,52,0.22);
   --nav-h:80px;
+  --banner-h:40px;
 }
 
 body{background:var(--warm);color:var(--charcoal);font-family:'Jost',sans-serif;font-weight:300;overflow-x:hidden;-webkit-font-smoothing:antialiased}
@@ -63,13 +64,20 @@ button{font-family:'Jost',sans-serif;cursor:pointer;border:none;background:none}
 }
 .nav-brand-group{display:flex;align-items:center;gap:0.6rem}
 .nav-brand-name{font-family:'Cormorant Garamond',serif;font-size:15px;font-weight:400;letter-spacing:0.18em;text-transform:uppercase;color:var(--charcoal)}
-.nav-brand-divider{width:0.5px;height:22px;background:var(--border2);flex-shrink:0;margin:0 0.2rem}
-.nav-brand-ranch{display:flex;align-items:center;gap:0.75rem;text-decoration:none;transition:opacity 0.25s}
-.nav-brand-ranch:hover{opacity:0.75}
-.ranch-logo-wrap{display:flex;flex-direction:column;align-items:center;gap:0}
-.ranch-logo-mark{height:34px;width:auto;display:block;mix-blend-mode:multiply;margin-bottom:-9px}
-.ranch-logo-text{font-family:'Cormorant Garamond',serif;font-size:9px;font-weight:400;letter-spacing:0.28em;text-transform:uppercase;color:var(--clay);line-height:1;margin-top:0}
-.nav-brand-ranch-name{font-family:'Cormorant Garamond',serif;font-size:15px;font-weight:400;letter-spacing:0.18em;text-transform:uppercase;color:var(--clay)}
+.ranch-banner{
+  position:fixed;top:var(--nav-h);left:0;right:0;z-index:399;
+  height:var(--banner-h);
+  background:var(--charcoal);
+  display:flex;align-items:center;justify-content:center;
+}
+.ranch-banner a{
+  display:flex;align-items:center;gap:0.6rem;
+  text-decoration:none;color:var(--clay);
+  font-family:'Cormorant Garamond',serif;font-size:13px;letter-spacing:0.14em;text-transform:uppercase;
+  transition:color 0.25s;
+}
+.ranch-banner a:hover{color:var(--warm)}
+.ranch-banner img{height:20px;width:auto;display:block}
 .logo-mark{
   height:48px;width:auto;display:block;
   mix-blend-mode:multiply;
@@ -126,7 +134,7 @@ button{font-family:'Jost',sans-serif;cursor:pointer;border:none;background:none}
 .hero{
   min-height:75vh;
   display:grid;grid-template-columns:65% 35%;
-  padding-top:var(--nav-h);
+  padding-top:calc(var(--nav-h) + var(--banner-h));
   position:relative;
 }
 .hero-img-col{position:relative;overflow:hidden}
@@ -283,13 +291,12 @@ button{font-family:'Jost',sans-serif;cursor:pointer;border:none;background:none}
   gap:12px;
 }
 .pc{position:relative;overflow:hidden;background:var(--sand2);cursor:pointer}
-.pc:nth-child(1){grid-column:1/5;grid-row:1/3}
-.pc:nth-child(2){grid-column:5/9;grid-row:1/2}
-.pc:nth-child(3){grid-column:9/13;grid-row:1/3}
-.pc:nth-child(4){grid-column:5/9;grid-row:2/3}
-.pc:nth-child(5){grid-column:1/5;grid-row:3/4}
-.pc:nth-child(6){grid-column:5/9;grid-row:3/4}
-.pc:nth-child(7){grid-column:9/13;grid-row:3/4}
+.pc:nth-child(1){grid-column:1/7;grid-row:1/3}
+.pc:nth-child(2){grid-column:7/10;grid-row:1/4}
+.pc:nth-child(3){grid-column:10/13;grid-row:1/3}
+.pc:nth-child(4){grid-column:1/4;grid-row:3/4}
+.pc:nth-child(5){grid-column:4/7;grid-row:3/4}
+.pc:nth-child(6){grid-column:10/13;grid-row:3/4}
 
 .pc img{width:100%;height:100%;object-fit:cover;transition:transform 0.8s cubic-bezier(0.25,0.46,0.45,0.94),filter 0.4s;filter:brightness(0.88)}
 .pc:hover img{transform:scale(1.06);filter:brightness(1)}
@@ -571,6 +578,27 @@ a.cd-v:hover{color:var(--clay)}
 .contact-right{display:flex;flex-direction:column;gap:1.5rem}
 .contact-right p{font-size:14px;line-height:1.9;color:var(--muted)}
 
+/* INSTAGRAM */
+.ig-section{padding:5rem 5rem;background:var(--warm);border-top:0.5px solid var(--border)}
+.ig-head{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:2.5rem;flex-wrap:wrap;gap:1rem}
+.ig-head h2{font-family:'Cormorant Garamond',serif;font-size:clamp(26px,3vw,38px);font-weight:300;color:var(--charcoal)}
+.ig-follow{font-size:10.5px;letter-spacing:0.2em;text-transform:uppercase;color:var(--clay2);text-decoration:none;border-bottom:0.5px solid var(--border2);padding-bottom:4px;transition:color 0.25s,border-color 0.25s;white-space:nowrap}
+.ig-follow:hover{color:var(--clay);border-color:var(--clay)}
+.ig-scroll{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:0.5rem;scrollbar-width:none;-ms-overflow-style:none}
+.ig-scroll::-webkit-scrollbar{display:none}
+.ig-tile{flex:0 0 240px;aspect-ratio:1/1;scroll-snap-align:start;position:relative;overflow:hidden;display:block}
+.ig-tile img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.5s ease}
+.ig-tile:hover img{transform:scale(1.06)}
+.ig-tile::after{
+  content:'';position:absolute;inset:0;
+  background:rgba(20,16,12,0.15);opacity:0;transition:opacity 0.3s;
+}
+.ig-tile:hover::after{opacity:1}
+@media(max-width:700px){
+  .ig-section{padding:3rem 1.5rem}
+  .ig-tile{flex-basis:160px}
+}
+
 footer{
   background:var(--charcoal);padding:2.2rem 5rem;
   display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;
@@ -630,7 +658,6 @@ footer{
   <a href="press.html">Press</a>
   <a href="awards.html">Awards</a>
   <a href="contact.html">Book a Consultation</a>
-  <a href="ranches.html" target="_blank" rel="noopener" style="color:var(--clay)">Deborah Kirk Ranches</a>
   <a onclick="scrollTo2('contact');closeDrawer()">Contact</a>
 </div>
 
@@ -641,13 +668,6 @@ footer{
       <img class="logo-mark" src="dkilogo2.png" alt="Deborah Kirk Interiors logo">
       <span class="nav-brand-group">
         <span class="nav-brand-name">Deborah Kirk Interiors</span>
-          <a href="ranches.html" target="_blank" rel="noopener" class="nav-brand-ranch">
-          <span class="ranch-logo-wrap">
-            <img src="Skull.png" alt="Deborah Kirk Ranches" class="ranch-logo-mark">
-            <span class="ranch-logo-text">DKR</span>
-          </span>
-          <span class="nav-brand-ranch-name">Deborah Kirk Ranches</span>
-        </a>
       </span>
     </div>
   </div>
@@ -665,6 +685,13 @@ footer{
   </div>
   <div class="nav-ham" onclick="openDrawer()"><span></span><span></span><span></span></div>
 </nav>
+
+<div class="ranch-banner">
+  <a href="ranches.html" target="_blank" rel="noopener">
+    <img src="Skull.png" alt="Deborah Kirk Ranches">
+    Visit Deborah Kirk Ranches!
+  </a>
+</div>
 
 <!-- ════════════ HOME PAGE ════════════ -->
 <div class="page active" id="page-home">
@@ -731,26 +758,35 @@ footer{
         <div class="pc-veil"></div>
         <div class="pc-info"><p class="pc-cat">Commercial</p><h3 class="pc-title">Tillie&#39;s</h3></div>
       </div>
-      <div class="pc" data-cat="ranch" data-gallery="projects/Cottages-Phase-3/bathroom-3-.jpg|projects/Cottages-Phase-3/bathroom-4-.jpg|projects/Cottages-Phase-3/bathroom-4-_edited.jpg|projects/Cottages-Phase-3/bathroom-5-.jpg|projects/Cottages-Phase-3/bathroom-5-_edited.jpg|projects/Cottages-Phase-3/bathroom-7-.jpg|projects/Cottages-Phase-3/bathroom-8-.jpg|projects/Cottages-Phase-3/bedroom-4-.jpg|projects/Cottages-Phase-3/bedroom-4-_edited.jpg|projects/Cottages-Phase-3/bedroom-detail-2-.jpg|projects/Cottages-Phase-3/bedroom-detail-2-_edited.jpg|projects/Cottages-Phase-3/bedroom-wide-.jpg|projects/Cottages-Phase-3/door-detail-.jpg|projects/Cottages-Phase-3/door.jpg|projects/Cottages-Phase-3/light-detail-.jpg|projects/Cottages-Phase-3/living-room-1-.jpg|projects/Cottages-Phase-3/living-room-3-.jpg|projects/Cottages-Phase-3/living-room-4-.jpg|projects/Cottages-Phase-3/living-room-5-.jpg|projects/Cottages-Phase-3/living-room-6-.jpg|projects/Cottages-Phase-3/living-room-7-.jpg|projects/Cottages-Phase-3/living-room-detail-.jpg|projects/Cottages-Phase-3/wall-detail-.jpg">
-        <img src="projects/Treetops/AK2A7994.jpg" alt="Cottages Phase 3" loading="lazy">
-        <div class="pc-veil"></div>
-        <div class="pc-info"><p class="pc-cat">Ranch &amp; Hospitality</p><h3 class="pc-title">Cottages Phase 3</h3></div>
-      </div>
       <div class="pc" data-cat="ranch" data-gallery="projects/Cottages-and-Luxe-Cottage/CampLucy-Aug2017-10.jpg|projects/Cottages-and-Luxe-Cottage/CampLucy-Aug2017-11.jpg|projects/Cottages-and-Luxe-Cottage/CampLucy-Aug2017-12.jpg|projects/Cottages-and-Luxe-Cottage/CampLucy-Aug2017-15.jpg|projects/Cottages-and-Luxe-Cottage/CampLucy-Aug2017-16.jpg|projects/Cottages-and-Luxe-Cottage/CampLucy-Aug2017-17.jpg|projects/Cottages-and-Luxe-Cottage/CampLucy-Aug2017-18.jpg|projects/Cottages-and-Luxe-Cottage/CampLucy-Aug2017-19.jpg|projects/Cottages-and-Luxe-Cottage/CampLucy-Aug2017-2.jpg|projects/Cottages-and-Luxe-Cottage/CampLucy-Aug2017-20.jpg|projects/Cottages-and-Luxe-Cottage/CampLucy-Aug2017-21.jpg|projects/Cottages-and-Luxe-Cottage/CampLucy-Aug2017-22.jpg|projects/Cottages-and-Luxe-Cottage/CampLucy-Aug2017-23.jpg|projects/Cottages-and-Luxe-Cottage/CampLucy-Aug2017-24.jpg|projects/Cottages-and-Luxe-Cottage/CampLucy-Aug2017-25.jpg|projects/Cottages-and-Luxe-Cottage/CampLucy-Aug2017-26.jpg|projects/Cottages-and-Luxe-Cottage/CampLucy-Aug2017-27.jpg|projects/Cottages-and-Luxe-Cottage/CampLucy-Aug2017-29.jpg|projects/Cottages-and-Luxe-Cottage/CampLucy-Aug2017-3.jpg|projects/Cottages-and-Luxe-Cottage/CampLucy-Aug2017-30.jpg|projects/Cottages-and-Luxe-Cottage/CampLucy-Aug2017-31.jpg|projects/Cottages-and-Luxe-Cottage/CampLucy-Aug2017-32.jpg|projects/Cottages-and-Luxe-Cottage/CampLucy-Aug2017-47.jpg|projects/Cottages-and-Luxe-Cottage/CampLucy-Aug2017-49.jpg|projects/Cottages-and-Luxe-Cottage/CampLucy-Aug2017-5.jpg|projects/Cottages-and-Luxe-Cottage/CampLucy-Aug2017-53.jpg|projects/Cottages-and-Luxe-Cottage/CampLucy-Aug2017-6.jpg|projects/Cottages-and-Luxe-Cottage/CampLucy-Aug2017-67.jpg|projects/Cottages-and-Luxe-Cottage/CampLucy-Aug2017-7.jpg|projects/Cottages-and-Luxe-Cottage/CampLucy-Aug2017-8.jpg|projects/Cottages-and-Luxe-Cottage/CampLucy-Aug2017-83.jpg|projects/Cottages-and-Luxe-Cottage/CampLucy-Aug2017-9.jpg|projects/Cottages-and-Luxe-Cottage/CampLucy-Aug2017.jpg|projects/Cottages-and-Luxe-Cottage/CampLucyCottageMarch2019-11.jpg|projects/Cottages-and-Luxe-Cottage/Lux-Bath.jpg">
-        <img src="projects/Cottages-and-Luxe-Cottage/Lux-Bath.jpg" alt="Cottages & Luxe Cottage" loading="lazy">
+        <img src="projects/Cottages-and-Luxe-Cottage/Lux-Bath.jpg" alt="Cottages-The Vistas" loading="lazy">
         <div class="pc-veil"></div>
-        <div class="pc-info"><p class="pc-cat">Ranch &amp; Hospitality</p><h3 class="pc-title">Cottages &amp; Luxe Cottage</h3></div>
+        <div class="pc-info"><p class="pc-cat">Ranch &amp; Hospitality</p><h3 class="pc-title">Cottages-The Vistas</h3></div>
       </div>
 
 
-      <div class="pc" data-cat="residential" data-gallery="projects/Treetops/AK2A7867.jpg|projects/Treetops/AK2A7888.jpg|projects/Treetops/AK2A7889.jpg|projects/Treetops/AK2A7892.jpg|projects/Treetops/AK2A7906.jpg|projects/Treetops/AK2A7910.jpg|projects/Treetops/AK2A7920.jpg|projects/Treetops/AK2A7929.jpg|projects/Treetops/AK2A7959.jpg|projects/Treetops/AK2A7963.jpg|projects/Treetops/AK2A7973.jpg|projects/Treetops/AK2A7975.jpg|projects/Treetops/AK2A7978.jpg|projects/Treetops/AK2A7982.jpg|projects/Treetops/AK2A7985.jpg|projects/Treetops/AK2A7989.jpg|projects/Treetops/AK2A7991.jpg|projects/Treetops/AK2A7999.jpg|projects/Treetops/AK2A8007.jpg|projects/Treetops/AK2A8015.jpg|projects/Treetops/AK2A8025.jpg|projects/Treetops/AK2A8030.jpg|projects/Treetops/AK2A8033.jpg|projects/Treetops/AK2A8036.jpg|projects/Treetops/AK2A8039.jpg|projects/Treetops/bedroom-wide-.jpg|projects/Treetops/living-room-3-.jpg|projects/Treetops/living-room-4-.jpg|projects/Treetops/living-room-6-.jpg">
-        <img src="projects/Treetops/AK2A7994.jpg" alt="Treetops" loading="lazy">
+      <div class="pc" data-cat="residential" data-gallery="projects/Treetops/AK2A7867.jpg|projects/Treetops/AK2A7888.jpg|projects/Treetops/AK2A7889.jpg|projects/Treetops/AK2A7892.jpg|projects/Treetops/AK2A7906.jpg|projects/Treetops/AK2A7910.jpg|projects/Treetops/AK2A7920.jpg|projects/Treetops/AK2A7929.jpg|projects/Treetops/AK2A7959.jpg|projects/Treetops/AK2A7963.jpg|projects/Treetops/AK2A7973.jpg|projects/Treetops/AK2A7975.jpg|projects/Treetops/AK2A7978.jpg|projects/Treetops/AK2A7982.jpg|projects/Treetops/AK2A7985.jpg|projects/Treetops/AK2A7989.jpg|projects/Treetops/AK2A7991.jpg|projects/Treetops/AK2A7999.jpg|projects/Treetops/AK2A8007.jpg|projects/Treetops/AK2A8015.jpg|projects/Treetops/AK2A8025.jpg|projects/Treetops/AK2A8030.jpg|projects/Treetops/AK2A8033.jpg|projects/Treetops/AK2A8036.jpg|projects/Treetops/AK2A8039.jpg|projects/Treetops/bedroom-wide-.jpg|projects/Treetops/living-room-3-.jpg|projects/Treetops/living-room-4-.jpg|projects/Treetops/living-room-6-.jpg|projects/Cottages-Phase-3/bathroom--.jpg|projects/Cottages-Phase-3/bathroom-3-.jpg|projects/Cottages-Phase-3/bathroom-4-.jpg|projects/Cottages-Phase-3/bathroom-4-_edited.jpg|projects/Cottages-Phase-3/bathroom-5-.jpg|projects/Cottages-Phase-3/bathroom-5-_edited.jpg|projects/Cottages-Phase-3/bathroom-7-.jpg|projects/Cottages-Phase-3/bathroom-8-.jpg|projects/Cottages-Phase-3/bedroom-4-.jpg|projects/Cottages-Phase-3/bedroom-4-_edited.jpg|projects/Cottages-Phase-3/bedroom-detail-2-.jpg|projects/Cottages-Phase-3/bedroom-detail-2-_edited.jpg|projects/Cottages-Phase-3/bedroom-wide-.jpg|projects/Cottages-Phase-3/door-detail-.jpg|projects/Cottages-Phase-3/door.jpg|projects/Cottages-Phase-3/light-detail-.jpg|projects/Cottages-Phase-3/living-room-1-.jpg|projects/Cottages-Phase-3/living-room-3-.jpg|projects/Cottages-Phase-3/living-room-4-.jpg|projects/Cottages-Phase-3/living-room-5-.jpg|projects/Cottages-Phase-3/living-room-6-.jpg|projects/Cottages-Phase-3/living-room-7-.jpg|projects/Cottages-Phase-3/living-room-detail-.jpg|projects/Cottages-Phase-3/wall-detail-.jpg">
+        <img src="projects/Treetops/AK2A7994.jpg" alt="Camp Lucy Treetops" loading="lazy">
         <div class="pc-veil"></div>
-        <div class="pc-info"><p class="pc-cat">Residential</p><h3 class="pc-title">Treetops</h3></div>
+        <div class="pc-info"><p class="pc-cat">Residential</p><h3 class="pc-title">Camp Lucy Treetops</h3></div>
       </div>
-        <div class="pc-info"><p class="pc-cat">Residential</p><h3 class="pc-title">Venado</h3></div>
+
+      <div class="pc" data-cat="ranch" data-gallery="projects/Big-Wells-Ranch/JRP_DKI_01_7748-Edit.jpg|projects/Big-Wells-Ranch/JRP_DKI_01_7762-Edit.jpg|projects/Big-Wells-Ranch/JRP_DKI_01_7788-Edit.jpg|projects/Big-Wells-Ranch/JRP_DKI_01_7813-Edit.jpg|projects/Big-Wells-Ranch/JRP_DKI_01_7862-Edit.jpg|projects/Big-Wells-Ranch/JRP_DKI_01_7864-Edit.jpg|projects/Big-Wells-Ranch/JRP_DKI_01_7873-Edit.jpg|projects/Big-Wells-Ranch/JRP_DKI_01_7899-Edit.jpg|projects/Big-Wells-Ranch/JRP_DKI_01_7916-Edit.jpg|projects/Big-Wells-Ranch/JRP_DKI_01_7928-Edit.jpg|projects/Big-Wells-Ranch/JRP_DKI_01_7969-Edit.jpg|projects/Big-Wells-Ranch/JRP_DKI_01_8001-Edit.jpg|projects/Big-Wells-Ranch/JRP_DKI_01_8013-Edit.jpg|projects/Big-Wells-Ranch/JRP_DKI_01_8021-Edit.jpg|projects/Big-Wells-Ranch/JRP_DKI_01_8072-Edit.jpg|projects/Big-Wells-Ranch/JRP_DKI_01_8089-Edit.jpg|projects/Big-Wells-Ranch/JRP_DKI_01_8101-Edit.jpg|projects/Big-Wells-Ranch/JRP_DKI_01_8121-Edit.jpg|projects/Big-Wells-Ranch/JRP_DKI_02_1001-Edit.jpg|projects/Big-Wells-Ranch/JRP_DKI_02_1002-Edit.jpg|projects/Big-Wells-Ranch/JRP_DKI_02_1003-Edit.jpg|projects/Big-Wells-Ranch/JRP_DKI_02_1004-Edit.jpg|projects/Big-Wells-Ranch/JRP_DKI_02_1006-Edit.jpg|projects/Big-Wells-Ranch/JRP_DKI_02_1007-Edit.jpg|projects/Big-Wells-Ranch/JRP_DKI_02_1008-Edit.jpg|projects/Big-Wells-Ranch/JRP_DKI_02_1010-Edit.jpg|projects/Big-Wells-Ranch/JRP_DKI_02_1011-Edit.jpg|projects/Big-Wells-Ranch/JRP_DKI_02_1012-Edit.jpg|projects/Big-Wells-Ranch/JRP_DKI_02_1013-Edit.jpg|projects/Big-Wells-Ranch/JRP_DKI_02_1016-Edit.jpg|projects/Big-Wells-Ranch/JRP_DKI_02_1018-Edit.jpg|projects/Big-Wells-Ranch/JRP_DKI_02_1024-Edit.jpg|projects/Big-Wells-Ranch/JRP_DKI_02_1026-Edit.jpg|projects/Big-Wells-Ranch/JRP_DKI_02_1028-Edit.jpg|projects/Big-Wells-Ranch/JRP_DKI_02_1030-Edit.jpg|projects/Big-Wells-Ranch/JRP_DKI_02_1031-Edit.jpg|projects/Big-Wells-Ranch/JRP_DKI_02_1032-Edit.jpg|projects/Big-Wells-Ranch/JRP_DKI_02_1037-Edit.jpg|projects/Big-Wells-Ranch/JRP_DKI_02_1038-Edit.jpg">
+        <img src="projects/Big-Wells-Ranch/JRP_DKI_01_7721-Edit.jpg" alt="Big Wells Ranch Photos" loading="lazy">
+        <div class="pc-veil"></div>
+        <div class="pc-info"><p class="pc-cat">Ranch &amp; Hospitality</p><h3 class="pc-title">Big Wells Ranch Photos</h3></div>
       </div>
-        <div class="pc-info"><p class="pc-cat">Commercial</p><h3 class="pc-title">DKI Studio</h3></div>
+
+      <div class="pc" data-cat="ranch" data-gallery="projects/Indianhead-Ranch/Bar.jpg|projects/Indianhead-Ranch/Barn-Interior.jpg|projects/Indianhead-Ranch/Barn-Patio.jpg|projects/Indianhead-Ranch/Butlers-Pantry.jpg|projects/Indianhead-Ranch/Casita-Interior.jpg|projects/Indianhead-Ranch/Casitas-Exterior.jpg|projects/Indianhead-Ranch/Dining-Room-Lights-On.jpg|projects/Indianhead-Ranch/Dining-Room.jpg|projects/Indianhead-Ranch/Front-Exterior-Detail.jpg|projects/Indianhead-Ranch/Front-Exterior-Tighter.jpg|projects/Indianhead-Ranch/Front-Exterior.jpg|projects/Indianhead-Ranch/Kitchen-2.jpg|projects/Indianhead-Ranch/Kitchen.jpg|projects/Indianhead-Ranch/Living-Room-Lights-On.jpg|projects/Indianhead-Ranch/Living-Room.jpg|projects/Indianhead-Ranch/Outdoor-Fireplace-V2.jpg|projects/Indianhead-Ranch/Outdoor-Fireplace.jpg|projects/Indianhead-Ranch/Pool-Breezeway-Lights-On.jpg|projects/Indianhead-Ranch/Pool-Breezeway.jpg|projects/Indianhead-Ranch/Pool-Deck.jpg|projects/Indianhead-Ranch/Powder-Room.jpg|projects/Indianhead-Ranch/Primary-Bath-Vanity-Lights-On.jpg|projects/Indianhead-Ranch/Primary-Bath-Vanity.jpg|projects/Indianhead-Ranch/Primary-Bathtub-Lights-On.jpg|projects/Indianhead-Ranch/Primary-Bathtub.jpg|projects/Indianhead-Ranch/Primary-Bedroom-Lights-On.jpg|projects/Indianhead-Ranch/Primary-Bedroom.jpg|projects/Indianhead-Ranch/Tower-Ceiling-Detail.jpg">
+        <img src="projects/Indianhead-Ranch/Barn-Exterior.jpg" alt="Indianhead Ranch Photos" loading="lazy">
+        <div class="pc-veil"></div>
+        <div class="pc-info"><p class="pc-cat">Ranch &amp; Hospitality</p><h3 class="pc-title">Indianhead Ranch Photos</h3></div>
+      </div>
+
+      <div class="pc" data-cat="residential" data-gallery="projects/Bouldin/AK2A8756.jpg|projects/Bouldin/AK2A8762.jpg|projects/Bouldin/AK2A8764-2.jpg|projects/Bouldin/AK2A8769.jpg|projects/Bouldin/AK2A8788-2.jpg|projects/Bouldin/AK2A8792.jpg|projects/Bouldin/AK2A8798.jpg|projects/Bouldin/AK2A8801.jpg|projects/Bouldin/AK2A8813.jpg|projects/Bouldin/AK2A8819.jpg|projects/Bouldin/AK2A8821.jpg|projects/Bouldin/AK2A8828.jpg|projects/Bouldin/AK2A8835.jpg|projects/Bouldin/AK2A8873.jpg">
+        <img src="projects/Bouldin/AK2A8771.jpg" alt="Bouldin" loading="lazy">
+        <div class="pc-veil"></div>
+        <div class="pc-info"><p class="pc-cat">Residential</p><h3 class="pc-title">Bouldin</h3></div>
       </div>
 
     </div>
@@ -764,12 +800,12 @@ footer{
       <h2>Every detail considered,<br><em style="font-family:'Cormorant Garamond',serif;font-style:italic">every room lived in.</em><br><span style="font-family:'Jost',sans-serif;font-style:normal;font-size:clamp(14px,1.2vw,16px);font-weight:300;color:var(--muted);line-height:1.9;display:block;margin-top:1.2rem">Whether starting from the ground up or reimagining an existing home, each project is guided by a commitment to comfort, craft, and the stories that objects carry.</span></h2>
     </div>
     <div class="svc-grid rv">
-      <div class="svc-card" style="--svc-img:url('projects/Woodward/AK2A2842.jpg')"><p class="svc-n">01</p><h3 class="svc-title">Full-Service Design</h3><p class="svc-desc">From concept through installation — space planning, material selection, furniture sourcing, and project management to a beautifully finished home.</p></div>
+      <div class="svc-card" style="--svc-img:url('projects/Big-Wells-Ranch/JRP_DKI_01_7721-Edit.jpg')"><p class="svc-n">01</p><h3 class="svc-title">Full-Service Design</h3><p class="svc-desc">From concept through installation — space planning, material selection, furniture sourcing, and project management to a beautifully finished home.</p></div>
       <div class="svc-card" style="--svc-img:url('projects/Treetops/AK2A7867.jpg')"><p class="svc-n">02</p><h3 class="svc-title">Renovation & Remodel</h3><p class="svc-desc">Thoughtful redesigns that honor the bones of a home while creating rooms that feel new, intentional, and entirely yours.</p></div>
       <div class="svc-card" style="--svc-img:url('projects/Cottages-Phase-3/wall-detail-.jpg')"><p class="svc-n">03</p><h3 class="svc-title">Antique Curation</h3><p class="svc-desc">Sourcing and integrating antiques, architecturals, and gathered objects that give each room depth, warmth, and a sense of story.</p></div>
-      <div class="svc-card" style="--svc-img:url('projects/Venado/VenadoDrive-110.jpg')"><p class="svc-n">04</p><h3 class="svc-title">New Construction</h3><p class="svc-desc">Collaborating with architects and builders from the ground up to ensure every interior decision is made with intention and coherence.</p></div>
+      <div class="svc-card" style="--svc-img:url('projects/Indianhead-Ranch/Barn-Exterior.jpg')"><p class="svc-n">04</p><h3 class="svc-title">New Construction</h3><p class="svc-desc">Collaborating with architects and builders from the ground up to ensure every interior decision is made with intention and coherence.</p></div>
       <div class="svc-card" style="--svc-img:url('projects/Tillies/DSC_2432.jpg')"><p class="svc-n">05</p><h3 class="svc-title">Commercial Spaces</h3><p class="svc-desc">Designing hospitality, retail, and event venues — including ranch properties and wedding destinations — that leave a lasting impression.</p></div>
-      <div class="svc-card" style="--svc-img:url('projects/Novy/_F5A6094-Edit.jpg')"><p class="svc-n">06</p><h3 class="svc-title">Design Consultation</h3><p class="svc-desc">A focused session for homeowners who need expert guidance on a specific space, color direction, or furniture arrangement.</p></div>
+      <div class="svc-card" style="--svc-img:url('projects/Bouldin/AK2A8756.jpg')"><p class="svc-n">06</p><h3 class="svc-title">Design Consultation</h3><p class="svc-desc">A focused session for homeowners who need expert guidance on a specific space, color direction, or furniture arrangement.</p></div>
     </div>
   </section>
 
@@ -785,6 +821,22 @@ footer{
       <div class="step"><div class="step-n">03</div><h3 class="step-t">Concept & Sourcing</h3><p class="step-d">Every selection is made with your space and your life in mind — materials, furnishings, and finishes chosen specifically for you, not pulled from a catalogue.</p></div>
       <div class="step"><div class="step-n">04</div><h3 class="step-t">Design Presentation</h3><p class="step-d">We present the full concept for your review — every selection explained, every decision aligned. Work begins only once you're completely on board.</p></div>
       <div class="step"><div class="step-n">05</div><h3 class="step-t">Installation</h3><p class="step-d">Full project management through delivery and installation, so you arrive to a finished, styled home.</p></div>
+    </div>
+  </section>
+
+  <!-- INSTAGRAM -->
+  <section class="ig-section">
+    <div class="ig-head rv">
+      <h2>Follow along on <em style="font-family:'Cormorant Garamond',serif;font-style:italic">Instagram</em></h2>
+      <a class="ig-follow" href="https://www.instagram.com/deborah_kirk_interiors/" target="_blank" rel="noopener">@deborah_kirk_interiors →</a>
+    </div>
+    <div class="ig-scroll rv">
+      <a class="ig-tile" href="https://www.instagram.com/deborah_kirk_interiors/" target="_blank" rel="noopener"><img src="instagram/IG1.png" alt="Deborah Kirk Interiors on Instagram" loading="lazy"></a>
+      <a class="ig-tile" href="https://www.instagram.com/deborah_kirk_interiors/" target="_blank" rel="noopener"><img src="instagram/IG2.png" alt="Deborah Kirk Interiors on Instagram" loading="lazy"></a>
+      <a class="ig-tile" href="https://www.instagram.com/deborah_kirk_interiors/" target="_blank" rel="noopener"><img src="instagram/IG3.png" alt="Deborah Kirk Interiors on Instagram" loading="lazy"></a>
+      <a class="ig-tile" href="https://www.instagram.com/deborah_kirk_interiors/" target="_blank" rel="noopener"><img src="instagram/IG4.png" alt="Deborah Kirk Interiors on Instagram" loading="lazy"></a>
+      <a class="ig-tile" href="https://www.instagram.com/deborah_kirk_interiors/" target="_blank" rel="noopener"><img src="instagram/IG5.png" alt="Deborah Kirk Interiors on Instagram" loading="lazy"></a>
+      <a class="ig-tile" href="https://www.instagram.com/deborah_kirk_interiors/" target="_blank" rel="noopener"><img src="instagram/IG6.png" alt="Deborah Kirk Interiors on Instagram" loading="lazy"></a>
     </div>
   </section>
 
@@ -849,7 +901,7 @@ footer{
       </div>
     </div>
     <div class="contact-right rv d2">
-      <p>Deborah takes on a limited number of projects each year to give every home her full attention. Reach out to start the conversation — even if you're still in the early stages of thinking.</p>
+      <p>Deborah takes on a limited number of projects each year to give every home her full attention. Reach out to start the conversation — even if you're still in the early stages.</p>
       <button class="btn-fill" onclick="window.location.href='contact.html'" style="align-self:flex-start">Book a consultation</button>
     </div>
   </section>
