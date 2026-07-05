@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Awards and recognition earned by Deborah Kirk Interiors across Austin and the Texas Hill Country.">
+<title>Awards — Deborah Kirk Interiors</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:'Jost',sans-serif;background:#FAF8F4;color:#28231C}
+:root{
+  --warm:#FAF8F4;--sand:#F4EFE6;--sand2:#EDE6D8;--sand3:#E3DACB;
+  --clay:#B89470;--clay2:#9A7A56;--bark:#5C4A34;--charcoal:#28231C;
+  --muted:#7B7168;--muted2:#9E9589;
+  --border:rgba(92,74,52,0.12);--border2:rgba(92,74,52,0.22);
+  --nav-h:80px;
+}
+
+/* NAV */
+#nav{
+  position:fixed;top:0;left:0;right:0;z-index:400;
+  height:var(--nav-h);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 2rem;gap:1.5rem;
+  background:rgba(250,248,244,0.96);
+  box-shadow:0 1px 0 var(--border);
+}
+.nav-left{display:flex;align-items:center;gap:1.5rem}
+.nav-logo{display:flex;align-items:center;gap:0.85rem}
+.logo-mark{height:38px;width:auto}
+.nav-brand-name{font-family:'Cormorant Garamond',serif;font-size:15px;font-weight:400;letter-spacing:0.18em;text-transform:uppercase;color:var(--charcoal)}
+.nav-right{display:flex;align-items:center;gap:1.5rem;margin-left:auto}
+.nav-links{display:flex;gap:1.3rem;list-style:none;align-items:center}
+.nav-links a{
+  font-size:10.5px;letter-spacing:0.18em;text-transform:uppercase;
+  color:var(--muted);text-decoration:none;position:relative;padding-bottom:2px;
+  transition:color 0.25s;cursor:pointer;
+}
+.nav-links a:hover{color:var(--charcoal)}
+.nav-links a.current{color:var(--charcoal)}
+.nav-book-btn{
+  padding:9px 20px;font-size:10px;letter-spacing:0.18em;text-transform:uppercase;
+  background:var(--charcoal);color:var(--sand);font-family:'Jost',sans-serif;
+  border:none;cursor:pointer;transition:background 0.25s;text-decoration:none;
+}
+.nav-book-btn:hover{background:var(--clay)}
+
+/* HERO */
+.booking-hero{
+  padding-top:calc(var(--nav-h) + 5rem);padding-bottom:4rem;
+  padding-left:5rem;padding-right:5rem;
+  background:var(--sand);text-align:center;border-bottom:0.5px solid var(--border);
+}
+.booking-hero-eyebrow{font-size:10px;letter-spacing:0.32em;text-transform:uppercase;color:var(--clay);margin-bottom:1.2rem}
+.booking-hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(36px,5vw,66px);font-weight:300;color:var(--charcoal);line-height:1.1;margin-bottom:1.2rem}
+.booking-hero h1 em{font-style:italic;color:var(--clay2)}
+.booking-hero p{font-size:16px;color:var(--muted);line-height:1.85;max-width:560px;margin:0 auto}
+
+.about-eyebrow{font-size:10px;letter-spacing:0.32em;text-transform:uppercase;color:var(--clay);margin-bottom:1.8rem;display:flex;align-items:center;gap:1rem}
+.about-eyebrow::before{content:'';display:block;width:24px;height:0.5px;background:var(--clay)}
+
+/* HONORS CAROUSEL */
+.hz-wrap{position:relative;display:flex;align-items:center;gap:1.2rem}
+.hz-carousel{
+  display:flex;gap:28px;flex:1;
+  overflow-x:auto;scroll-snap-type:x mandatory;
+  padding:2rem 0;scrollbar-width:none;-ms-overflow-style:none;
+}
+.hz-carousel::-webkit-scrollbar{display:none}
+.hz-spacer{flex:0 0 calc(50% - 160px);scroll-snap-align:none}
+.award-hl-card{
+  flex:0 0 320px;scroll-snap-align:center;
+  background:var(--warm);display:flex;flex-direction:column;overflow:hidden;
+  transform:scale(0.82);opacity:0.5;
+  transition:transform 0.45s ease,opacity 0.45s ease,background 0.3s;
+  cursor:pointer;
+}
+.award-hl-img{width:100%;aspect-ratio:4/3;overflow:hidden}
+.award-hl-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.5s ease}
+.award-hl-body{padding:1.8rem 2rem 2.2rem}
+.award-hl-card.active{
+  transform:scale(1.08);opacity:1;
+  background:var(--sand);
+  box-shadow:0 24px 48px rgba(40,35,28,0.16);
+  z-index:2;
+}
+.hz-arrow{
+  flex:0 0 auto;width:44px;height:44px;border:0.5px solid var(--border2);background:var(--warm);
+  display:flex;align-items:center;justify-content:center;
+  color:var(--muted);font-size:16px;cursor:pointer;transition:border-color 0.2s,color 0.2s;
+  z-index:3;
+}
+.hz-arrow:hover{border-color:var(--clay);color:var(--clay)}
+@media(max-width:700px){
+  .hz-spacer{flex:0 0 calc(50% - 130px)}
+  .award-hl-card{flex-basis:260px}
+  .hz-arrow{display:none}
+}
+.press-pub{font-size:10px;letter-spacing:0.24em;text-transform:uppercase;color:var(--clay);margin-bottom:1rem}
+.press-title{font-family:'Cormorant Garamond',serif;font-size:21px;font-weight:300;color:var(--charcoal);line-height:1.25;margin-bottom:1rem}
+.press-body{font-size:13.5px;line-height:1.85;color:var(--muted);margin-bottom:1.5rem}
+.press-tag{font-size:9.5px;letter-spacing:0.2em;text-transform:uppercase;color:var(--clay2);border:0.5px solid var(--border2);padding:4px 10px}
+
+/* FOOTER */
+footer{background:var(--charcoal);padding:3rem 5rem;text-align:center}
+
+@media(max-width:940px){
+  .award-hl-body{padding:1.5rem 1.5rem 2rem}
+  section{padding-left:1.5rem!important;padding-right:1.5rem!important}
+}
+@media(max-width:700px){
+  .booking-hero{padding:calc(var(--nav-h) + 3rem) 2rem 3rem}
+  .nav-links,.nav-book-btn{display:none}
+}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="nav-left">
+    <div class="nav-logo">
+      <img class="logo-mark" src="dkilogo2.png" alt="Deborah Kirk Interiors logo">
+      <span class="nav-brand-name">Deborah Kirk Interiors</span>
+    </div>
+  </div>
+  <div class="nav-right">
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="all-projects.html">Portfolio</a></li>
+      <li><a href="press.html">Press</a></li>
+      <li><a href="awards.html" class="current">Awards</a></li>
+    </ul>
+    <a class="nav-book-btn" href="contact.html">Book a consultation</a>
+  </div>
+</nav>
+
+<div class="booking-hero">
+  <p class="booking-hero-eyebrow">Deborah Kirk Interiors</p>
+  <h1>Awards &amp; <em>Recognition</em></h1>
+  <p>A track record of design excellence recognized by leading industry organizations and local communities across Austin and the Texas Hill Country.</p>
+</div>
+
+<section style="background:var(--warm);padding:6rem 5rem;">
+  <div class="about-eyebrow"><span>Honors</span></div>
+  <div class="hz-wrap">
+  <button class="hz-arrow" id="hzPrev" aria-label="Previous award">&#8592;</button>
+  <div id="honorsGrid" class="hz-carousel">
+    <div class="hz-spacer"></div>
+
+    <div class="award-hl-card">
+      <div class="award-hl-img"><img src="awards/award_02_celebrating_design.jpg" alt="Houzz Best of Design award"></div>
+      <div class="award-hl-body">
+        <p class="press-pub">Houzz</p>
+        <h3 class="press-title">Best of Design — 5 Years</h3>
+        <p class="press-body">Recognized five consecutive times by Houzz for outstanding interior design, placing Deborah among a select group of top-rated designers nationwide.</p>
+        <span class="press-tag">Industry Award</span>
+      </div>
+    </div>
+
+    <div class="award-hl-card">
+      <div class="award-hl-img"><img src="awards/award_08_deborah_b29_awards.jpg" alt="Best of Dripping Springs award badge"></div>
+      <div class="award-hl-body">
+        <p class="press-pub">Dripping Springs Community · 2016–2018</p>
+        <h3 class="press-title">Best of Dripping Springs — Interior Designer</h3>
+        <p class="press-body">Deborah Kirk Interiors is a proud recipient of "Best of Dripping Springs" in 2016, 2017, and 2018 in the Best Interior Designer category.</p>
+        <span class="press-tag">Community Award</span>
+      </div>
+    </div>
+
+    <div class="award-hl-card">
+      <div class="award-hl-img"><img src="AH.png" alt="Austin Home Magazine cover"></div>
+      <div class="award-hl-body">
+        <p class="press-pub">Austin Home Magazine</p>
+        <h3 class="press-title">Featured Designer</h3>
+        <p class="press-body">Selected by Austin Home Magazine as a standout designer whose work exemplifies the warmth, craft, and character of Texas Hill Country living.</p>
+        <span class="press-tag">Feature</span>
+      </div>
+    </div>
+
+    <div class="award-hl-card">
+      <div class="award-hl-img"><img src="awards/award_01_houzz_2021.png" alt="Best of Houzz 2021 for Service award"></div>
+      <div class="award-hl-body">
+        <p class="press-pub">Houzz · January 2021</p>
+        <h3 class="press-title">Best of Houzz: Service</h3>
+        <p class="press-body">Excited to share that Deborah Kirk Interiors has won Best of Houzz 2021 for Service.</p>
+        <span class="press-tag">Industry Award</span>
+      </div>
+    </div>
+
+    <div class="award-hl-card">
+      <div class="award-hl-img"><img src="awards/award_05_deborah_award_photo.jpg" alt="ASID Design Excellence Award"></div>
+      <div class="award-hl-body">
+        <p class="press-pub">ASID · November 2018</p>
+        <h3 class="press-title">Design Excellence Award — Hospitality</h3>
+        <p class="press-body">Deborah Kirk Interiors received first place recognition at the ASID Design Excellence Awards in the Hospitality category for Camp Lucy's Cottages, in recognition of the firm's work with the Camp Lucy team.</p>
+        <span class="press-tag">Industry Award</span>
+      </div>
+    </div>
+
+    <div class="award-hl-card">
+      <div class="award-hl-img"><img src="awards/award_07_deborah_two_awards.jpg" alt="ASID Design Excellence Awards, two-time winner"></div>
+      <div class="award-hl-body">
+        <p class="press-pub">ASID · November 2016</p>
+        <h3 class="press-title">A Two-Time Design Excellence Winner</h3>
+        <p class="press-body">Deborah Kirk Interiors received two awards at the November 2016 ASID Design Excellence Awards ceremony at Laguna Gloria — Whim Floral honored in the Retail/Hospitality category, and Whit's Inn recognized in the Recreational Facility category. Both projects are part of the Whim Hospitality Family in Dripping Springs, Texas.</p>
+        <span class="press-tag">Industry Award</span>
+      </div>
+    </div>
+
+    <div class="hz-spacer"></div>
+  </div>
+  <button class="hz-arrow" id="hzNext" aria-label="Next award">&#8594;</button>
+  </div>
+</section>
+
+<footer>
+  <ul style="list-style:none;display:flex;justify-content:center;gap:2.5rem;flex-wrap:wrap;margin:0;padding:0">
+    <li><a href="index.html" style="color:var(--sand);font-size:13px;letter-spacing:0.06em;text-decoration:none">Home</a></li>
+    <li><a href="press.html" style="color:var(--sand);font-size:13px;letter-spacing:0.06em;text-decoration:none">Press</a></li>
+    <li><a href="contact.html" style="color:var(--sand);font-size:13px;letter-spacing:0.06em;text-decoration:none">Book</a></li>
+  </ul>
+</footer>
+
+<script>
+(function(){
+  var track = document.getElementById('honorsGrid');
+  var cards = Array.prototype.slice.call(track.querySelectorAll('.award-hl-card'));
+  var prev  = document.getElementById('hzPrev');
+  var next  = document.getElementById('hzNext');
+  if(!cards.length) return;
+
+  function updateActive(){
+    var mid = track.getBoundingClientRect().left + track.clientWidth/2;
+    var closest = null, closestDist = Infinity;
+    cards.forEach(function(c){
+      var r = c.getBoundingClientRect();
+      var dist = Math.abs((r.left+r.right)/2 - mid);
+      if(dist < closestDist){ closestDist = dist; closest = c; }
+    });
+    cards.forEach(function(c){ c.classList.toggle('active', c===closest); });
+    return closest;
+  }
+
+  function scrollToCard(card, instant){
+    var trackRect = track.getBoundingClientRect();
+    var cardRect  = card.getBoundingClientRect();
+    var delta = (cardRect.left + cardRect.right)/2 - (trackRect.left + trackRect.width/2);
+    track.scrollBy({left:delta, behavior: instant ? 'auto' : 'smooth'});
+  }
+
+  prev.addEventListener('click', function(){
+    var active = cards.find(function(c){return c.classList.contains('active')});
+    var idx = Math.max(0, cards.indexOf(active)-1);
+    scrollToCard(cards[idx]);
+  });
+  next.addEventListener('click', function(){
+    var active = cards.find(function(c){return c.classList.contains('active')});
+    var idx = Math.min(cards.length-1, cards.indexOf(active)+1);
+    scrollToCard(cards[idx]);
+  });
+  cards.forEach(function(c){ c.addEventListener('click', function(){ scrollToCard(c); }); });
+
+  var ticking = false;
+  track.addEventListener('scroll', function(){
+    if(!ticking){
+      window.requestAnimationFrame(function(){ updateActive(); ticking = false; });
+      ticking = true;
+    }
+  }, {passive:true});
+
+  var startIdx = Math.floor(Math.random()*cards.length);
+  scrollToCard(cards[startIdx], true);
+  updateActive();
+})();
+</script>
+</body>
+</html>
