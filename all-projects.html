@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>All Projects — Deborah Kirk Interiors</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:'Jost',sans-serif;background:#FAF8F4;color:#28231C}
+:root{
+  --warm:#FAF8F4;--sand:#F4EFE6;--sand2:#EDE6D8;--sand3:#E3DACB;
+  --clay:#B89470;--clay2:#9A7A56;--bark:#5C4A34;--charcoal:#28231C;
+  --muted:#7B7168;--muted2:#9E9589;
+  --border:rgba(92,74,52,0.12);--border2:rgba(92,74,52,0.22);
+}
+
+/* Header */
+.pg-header{
+  padding:3rem 5rem 2.5rem;
+  background:var(--sand);
+  border-bottom:0.5px solid var(--border2);
+  display:flex;align-items:flex-end;justify-content:space-between;
+}
+.pg-header h1{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(28px,3.5vw,46px);font-weight:300;color:var(--charcoal);line-height:1.15;
+}
+.pg-back{
+  font-size:10.5px;letter-spacing:0.22em;text-transform:uppercase;
+  color:var(--muted);border-bottom:0.5px solid var(--border2);padding-bottom:4px;
+  text-decoration:none;transition:color 0.25s,border-color 0.25s;
+}
+.pg-back:hover{color:var(--clay);border-color:var(--clay)}
+
+/* Filter */
+.filter-wrap{
+  padding:2rem 5rem 1rem;
+  background:var(--sand);
+  display:flex;gap:0.25rem;
+}
+.f-btn{
+  padding:7px 16px;font-size:10px;letter-spacing:0.18em;text-transform:uppercase;
+  color:var(--muted);border:0.5px solid transparent;transition:all 0.25s;font-weight:300;
+  background:none;cursor:pointer;font-family:'Jost',sans-serif;
+}
+.f-btn.on{color:var(--charcoal);border-color:var(--border2)}
+.f-btn:hover{color:var(--charcoal)}
+
+/* Grid */
+.port-wrap{padding:2rem 5rem 6rem;background:var(--sand)}
+.port-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  grid-auto-rows:280px;
+  gap:12px;
+}
+.pc{position:relative;overflow:hidden;background:var(--sand2);cursor:pointer}
+.pc img{width:100%;height:100%;object-fit:cover;transition:transform 0.8s cubic-bezier(0.25,0.46,0.45,0.94),filter 0.4s;filter:brightness(0.88)}
+.pc:hover img{transform:scale(1.06);filter:brightness(1)}
+.pc-veil{position:absolute;inset:0;background:linear-gradient(to top,rgba(40,35,28,0.72) 0%,transparent 55%);opacity:0;transition:opacity 0.45s}
+.pc:hover .pc-veil{opacity:1}
+.pc-info{position:absolute;bottom:0;left:0;right:0;padding:1.8rem;transform:translateY(7px);transition:transform 0.45s}
+.pc:hover .pc-info{transform:translateY(0)}
+.pc-cat{font-size:9.5px;letter-spacing:0.26em;text-transform:uppercase;color:var(--clay);margin-bottom:0.3rem;opacity:0;transition:opacity 0.45s 0.05s}
+.pc:hover .pc-cat{opacity:1}
+.pc-title{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:300;color:var(--warm);line-height:1.2;opacity:0;transition:opacity 0.45s 0.1s}
+.pc:hover .pc-title{opacity:1}
+
+/* Lightbox */
+.lb-overlay{
+  position:fixed;inset:0;z-index:1000;
+  background:rgba(28,22,16,0.96);
+  display:flex;flex-direction:column;
+  opacity:0;pointer-events:none;transition:opacity 0.35s;
+  overflow-y:auto;
+}
+.lb-overlay.open{opacity:1;pointer-events:auto}
+.lb-header{
+  position:sticky;top:0;left:0;right:0;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1.4rem 2.5rem;
+  background:rgba(28,22,16,0.97);
+  border-bottom:0.5px solid rgba(255,255,255,0.08);
+  z-index:2;flex-shrink:0;
+}
+.lb-meta{display:flex;flex-direction:column;gap:0.25rem}
+.lb-cat{font-size:9.5px;letter-spacing:0.26em;text-transform:uppercase;color:var(--clay)}
+.lb-title{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:300;color:var(--warm);letter-spacing:0.02em}
+.lb-close{
+  width:42px;height:42px;border:0.5px solid rgba(255,255,255,0.2);
+  display:flex;align-items:center;justify-content:center;
+  color:rgba(255,255,255,0.7);font-size:20px;line-height:1;
+  cursor:pointer;transition:border-color 0.2s,color 0.2s;flex-shrink:0;
+}
+.lb-close:hover{border-color:var(--clay);color:var(--clay)}
+.lb-grid{display:flex;flex-direction:column;gap:20px;padding:20px;width:100%;box-sizing:border-box;align-items:center;}
+.lb-grid-img{display:block;width:auto;height:auto;max-width:calc(100vw - 40px);max-height:88vh;object-fit:contain;margin:0 auto;}
+
+@media(max-width:900px){
+  .pg-header,.filter-wrap,.port-wrap{padding-left:1.5rem;padding-right:1.5rem}
+  .port-grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:200px}
+}
+@media(max-width:500px){
+  .port-grid{grid-template-columns:1fr;grid-auto-rows:260px}
+}
+</style>
+</head>
+<body>
+
+<div class="pg-header">
+  <h1>All Projects</h1>
+  <a class="pg-back" href="index.html">← Back to home</a>
+</div>
+
+<div class="filter-wrap">
+  <button class="f-btn on" data-f="all">All</button>
+  <button class="f-btn" data-f="residential">Residential</button>
+  <button class="f-btn" data-f="commercial">Commercial</button>
+  <button class="f-btn" data-f="ranch">Ranch</button>
+</div>
+
+<div class="port-wrap">
+  <div class="port-grid">
+      <div class="pc" data-cat="commercial" data-gallery="projects/Tillies/DSC_2448.jpg|projects/Tillies/DSC_2475.jpg|projects/Tillies/DSC_2475_edited.jpg|projects/Tillies/DSC_2482.jpg|projects/Tillies/DSC_2487.jpg|projects/Tillies/DSC_2510.jpg|projects/Tillies/DSC_2589.jpg|projects/Tillies/DSC_2600.jpg|projects/Tillies/DSC_2625.jpg|projects/Tillies/DSC_2694.jpg|projects/Tillies/DSC_2730.jpg|projects/Tillies/DSC_2743.jpg|projects/Tillies/DSC_2794.jpg|projects/Tillies/plates-tillies-exterior.jpg">
+        <img src="projects/Tillies/DSC_2432.jpg" alt="Tillie's" loading="lazy">
+        <div class="pc-veil"></div>
+        <div class="pc-info"><p class="pc-cat">Commercial</p><h3 class="pc-title">Tillie&#39;s</h3></div>
+      </div>
+
+      <div class="pc" data-cat="ranch" data-gallery="projects/Cottages-Phase-3/bathroom-3-.jpg|projects/Cottages-Phase-3/bathroom-4-.jpg|projects/Cottages-Phase-3/bathroom-4-_edited.jpg|projects/Cottages-Phase-3/bathroom-5-.jpg|projects/Cottages-Phase-3/bathroom-5-_edited.jpg|projects/Cottages-Phase-3/bathroom-7-.jpg|projects/Cottages-Phase-3/bathroom-8-.jpg|projects/Cottages-Phase-3/bedroom-4-.jpg|projects/Cottages-Phase-3/bedroom-4-_edited.jpg|projects/Cottages-Phase-3/bedroom-detail-2-.jpg|projects/Cottages-Phase-3/bedroom-detail-2-_edited.jpg|projects/Cottages-Phase-3/bedroom-wide-.jpg|projects/Cottages-Phase-3/door-detail-.jpg|projects/Cottages-Phase-3/door.jpg|projects/Cottages-Phase-3/light-detail-.jpg|projects/Cottages-Phase-3/living-room-1-.jpg|projects/Cottages-Phase-3/living-room-3-.jpg|projects/Cottages-Phase-3/living-room-4-.jpg|projects/Cottages-Phase-3/living-room-5-.jpg|projects/Cottages-Phase-3/living-room-6-.jpg|projects/Cottages-Phase-3/living-room-7-.jpg|projects/Cottages-Phase-3/living-room-detail-.jpg|projects/Cottages-Phase-3/wall-detail-.jpg">
+        <img src="projects/Cottages-Phase-3/bathroom--.jpg" alt="Cottages Phase 3" loading="lazy">
+        <div class="pc-veil"></div>
+        <div class="pc-info"><p class="pc-cat">Ranch &amp; Hospitality</p><h3 class="pc-title">Cottages Phase 3</h3></div>
+      </div>
+
+      <div class="pc" data-cat="ranch" data-gallery="projects/Cottages-and-Luxe-Cottage/CampLucy-Aug2017-10.jpg|projects/Cottages-and-Luxe-Cottage/CampLucy-Aug2017-11.jpg|projects/Cottages-and-Luxe-Cottage/CampLucy-Aug2017-12.jpg|projects/Cottages-and-Luxe-Cottage/CampLucy-Aug2017-15.jpg|projects/Cottages-and-Luxe-Cottage/CampLucy-Aug2017-16.jpg|projects/Cottages-and-Luxe-Cottage/CampLucy-Aug2017-17.jpg|projects/Cottages-and-Luxe-Cottage/CampLucy-Aug2017-18.jpg|projects/Cottages-and-Luxe-Cottage/CampLucy-Aug2017-19.jpg|projects/Cottages-and-Luxe-Cottage/CampLucy-Aug2017-2.jpg|projects/Cottages-and-Luxe-Cottage/CampLucy-Aug2017-20.jpg|projects/Cottages-and-Luxe-Cottage/CampLucy-Aug2017-21.jpg|projects/Cottages-and-Luxe-Cottage/CampLucy-Aug2017-22.jpg|projects/Cottages-and-Luxe-Cottage/CampLucy-Aug2017-23.jpg|projects/Cottages-and-Luxe-Cottage/CampLucy-Aug2017-24.jpg|projects/Cottages-and-Luxe-Cottage/CampLucy-Aug2017-25.jpg|projects/Cottages-and-Luxe-Cottage/CampLucy-Aug2017-26.jpg|projects/Cottages-and-Luxe-Cottage/CampLucy-Aug2017-27.jpg|projects/Cottages-and-Luxe-Cottage/CampLucy-Aug2017-29.jpg|projects/Cottages-and-Luxe-Cottage/CampLucy-Aug2017-3.jpg|projects/Cottages-and-Luxe-Cottage/CampLucy-Aug2017-30.jpg|projects/Cottages-and-Luxe-Cottage/CampLucy-Aug2017-31.jpg|projects/Cottages-and-Luxe-Cottage/CampLucy-Aug2017-32.jpg|projects/Cottages-and-Luxe-Cottage/CampLucy-Aug2017-47.jpg|projects/Cottages-and-Luxe-Cottage/CampLucy-Aug2017-49.jpg|projects/Cottages-and-Luxe-Cottage/CampLucy-Aug2017-5.jpg|projects/Cottages-and-Luxe-Cottage/CampLucy-Aug2017-53.jpg|projects/Cottages-and-Luxe-Cottage/CampLucy-Aug2017-6.jpg|projects/Cottages-and-Luxe-Cottage/CampLucy-Aug2017-67.jpg|projects/Cottages-and-Luxe-Cottage/CampLucy-Aug2017-7.jpg|projects/Cottages-and-Luxe-Cottage/CampLucy-Aug2017-8.jpg|projects/Cottages-and-Luxe-Cottage/CampLucy-Aug2017-83.jpg|projects/Cottages-and-Luxe-Cottage/CampLucy-Aug2017-9.jpg|projects/Cottages-and-Luxe-Cottage/CampLucy-Aug2017.jpg|projects/Cottages-and-Luxe-Cottage/CampLucyCottageMarch2019-11.jpg|projects/Cottages-and-Luxe-Cottage/Lux-Bath.jpg">
+        <img src="projects/Cottages-and-Luxe-Cottage/960x0.jpg" alt="Cottages & Luxe Cottage" loading="lazy">
+        <div class="pc-veil"></div>
+        <div class="pc-info"><p class="pc-cat">Ranch &amp; Hospitality</p><h3 class="pc-title">Cottages &amp; Luxe Cottage</h3></div>
+      </div>
+
+      <div class="pc" data-cat="commercial" data-gallery="projects/DKI-Studio/IMG_0427.jpg|projects/DKI-Studio/IMG_0428.jpg">
+        <img src="projects/DKI-Studio/IMG-0921.jpg" alt="DKI Studio" loading="lazy">
+        <div class="pc-veil"></div>
+        <div class="pc-info"><p class="pc-cat">Commercial</p><h3 class="pc-title">DKI Studio</h3></div>
+      </div>
+
+      <div class="pc" data-cat="residential" data-gallery="projects/Ellis/IMG-9964_edited.jpg|projects/Ellis/IMG-9965.jpg|projects/Ellis/IMG-9965_edited.jpg|projects/Ellis/IMG-9967.jpg|projects/Ellis/IMG-9967_edited.jpg|projects/Ellis/IMG-9968.jpg|projects/Ellis/IMG-9969.jpg|projects/Ellis/IMG-9971.jpg|projects/Ellis/IMG-9972.jpg|projects/Ellis/IMG-9973.jpg">
+        <img src="projects/Ellis/IMG-9964.jpg" alt="Ellis" loading="lazy">
+        <div class="pc-veil"></div>
+        <div class="pc-info"><p class="pc-cat">Residential</p><h3 class="pc-title">Ellis</h3></div>
+      </div>
+
+      <div class="pc" data-cat="residential" data-gallery="projects/Galeana-Trace/DSC_1656.jpg|projects/Galeana-Trace/DSC_1668.jpg|projects/Galeana-Trace/DSC_1721-Edit.jpg|projects/Galeana-Trace/DSC_1795.jpg|projects/Galeana-Trace/DSC_1867.jpg|projects/Galeana-Trace/DSC_1872-Edit.jpg">
+        <img src="projects/Galeana-Trace/DSC_1578-Edit-2.jpg" alt="Galeana Trace" loading="lazy">
+        <div class="pc-veil"></div>
+        <div class="pc-info"><p class="pc-cat">Residential</p><h3 class="pc-title">Galeana Trace</h3></div>
+      </div>
+
+      <div class="pc" data-cat="residential" data-gallery="projects/Krengel/Krengel-Spanish-Oaks-Home-011.jpg|projects/Krengel/Krengel-Spanish-Oaks-Home-020.jpg|projects/Krengel/Krengel-Spanish-Oaks-Home-022.jpg|projects/Krengel/Krengel-Spanish-Oaks-Home-023.jpg|projects/Krengel/Krengel-Spanish-Oaks-Home-029.jpg|projects/Krengel/Krengel-Spanish-Oaks-Home-032.jpg|projects/Krengel/Krengel-Spanish-Oaks-Home-033.jpg|projects/Krengel/Krengel-Spanish-Oaks-Home-039.jpg|projects/Krengel/Krengel-Spanish-Oaks-Home-048.jpg|projects/Krengel/Krengel-Spanish-Oaks-Home-063.jpg|projects/Krengel/Krengel-Spanish-Oaks-Home-072.jpg|projects/Krengel/Krengel-Spanish-Oaks-Home-074.jpg|projects/Krengel/Krengel-fireplace-2.jpg">
+        <img src="projects/Krengel/Krengel-Spanish-Oaks-Home-007.jpg" alt="Krengel" loading="lazy">
+        <div class="pc-veil"></div>
+        <div class="pc-info"><p class="pc-cat">Residential</p><h3 class="pc-title">Krengel</h3></div>
+      </div>
+
+      <div class="pc" data-cat="commercial" data-gallery="projects/Learman-Office/AK2A2985.jpg|projects/Learman-Office/AK2A3008.jpg|projects/Learman-Office/AK2A3014.jpg|projects/Learman-Office/AK2A3025.jpg|projects/Learman-Office/AK2A3052.jpg">
+        <img src="projects/Learman-Office/AK2A2976.jpg" alt="Learman Office" loading="lazy">
+        <div class="pc-veil"></div>
+        <div class="pc-info"><p class="pc-cat">Commercial</p><h3 class="pc-title">Learman Office</h3></div>
+      </div>
+
+      <div class="pc" data-cat="ranch" data-gallery="projects/Lucy-Cottage/CampLucyAug302017-11.jpg|projects/Lucy-Cottage/CampLucyAug302017-12.jpg|projects/Lucy-Cottage/CampLucyAug302017-13.jpg|projects/Lucy-Cottage/CampLucyAug302017-14.jpg|projects/Lucy-Cottage/CampLucyAug302017-15.jpg|projects/Lucy-Cottage/CampLucyAug302017-16.jpg|projects/Lucy-Cottage/CampLucyAug302017-2.jpg|projects/Lucy-Cottage/CampLucyAug302017-3.jpg|projects/Lucy-Cottage/CampLucyAug302017-4.jpg|projects/Lucy-Cottage/CampLucyAug302017-5.jpg|projects/Lucy-Cottage/CampLucyAug302017-6.jpg|projects/Lucy-Cottage/CampLucyAug302017-7.jpg|projects/Lucy-Cottage/CampLucyAug302017-8.jpg|projects/Lucy-Cottage/CampLucyAug302017-9.jpg|projects/Lucy-Cottage/CampLucyAug302017.jpg">
+        <img src="projects/Lucy-Cottage/CampLucyAug302017-10.jpg" alt="Lucy Cottage" loading="lazy">
+        <div class="pc-veil"></div>
+        <div class="pc-info"><p class="pc-cat">Ranch &amp; Hospitality</p><h3 class="pc-title">Lucy Cottage</h3></div>
+      </div>
+
+      <div class="pc" data-cat="residential" data-gallery="projects/McCornack/McCornack10.jpg|projects/McCornack/McCornack2.jpg|projects/McCornack/McCornack3.jpg|projects/McCornack/McCornack5.jpg|projects/McCornack/McCornack6.jpg|projects/McCornack/McCornack8.jpg|projects/McCornack/McCornack9.jpg">
+        <img src="projects/McCornack/McCornack1.jpg" alt="McCornack" loading="lazy">
+        <div class="pc-veil"></div>
+        <div class="pc-info"><p class="pc-cat">Residential</p><h3 class="pc-title">McCornack</h3></div>
+      </div>
+
+      <div class="pc" data-cat="residential" data-gallery="projects/New-Photos/AK2A8762.jpg|projects/New-Photos/AK2A8764-2.jpg|projects/New-Photos/AK2A8769.jpg|projects/New-Photos/AK2A8771.jpg|projects/New-Photos/AK2A8788-2.jpg|projects/New-Photos/AK2A8792.jpg|projects/New-Photos/AK2A8798.jpg|projects/New-Photos/AK2A8801.jpg|projects/New-Photos/AK2A8813.jpg|projects/New-Photos/AK2A8819.jpg|projects/New-Photos/AK2A8821.jpg|projects/New-Photos/AK2A8828.jpg|projects/New-Photos/AK2A8835.jpg|projects/New-Photos/AK2A8873.jpg|projects/New-Photos/jpg.jpg">
+        <img src="projects/New-Photos/AK2A8756.jpg" alt="New Projects" loading="lazy">
+        <div class="pc-veil"></div>
+        <div class="pc-info"><p class="pc-cat">Residential</p><h3 class="pc-title">New Projects</h3></div>
+      </div>
+
+      <div class="pc" data-cat="residential" data-gallery="projects/Novy/_F5A6115-Edit.jpg|projects/Novy/_F5A6123-Edit.jpg|projects/Novy/_F5A6135-Edit.jpg">
+        <img src="projects/Novy/_F5A6094-Edit.jpg" alt="Novy" loading="lazy">
+        <div class="pc-veil"></div>
+        <div class="pc-info"><p class="pc-cat">Residential</p><h3 class="pc-title">Novy</h3></div>
+      </div>
+
+      <div class="pc" data-cat="residential" data-gallery="projects/Sacred-Oaks/SO-Interior.jpg|projects/Sacred-Oaks/_DSC0001_2_3_4_5_6Adjust-copy.jpg|projects/Sacred-Oaks/_DSC0031_2_3_4_5_6Adjust-copy.jpg|projects/Sacred-Oaks/_DSC0043_4_5_6_7_8Adjust-copy.jpg|projects/Sacred-Oaks/_DSC0073_4_5_6_7_8Adjust-copy.jpg|projects/Sacred-Oaks/_DSC0079_80_81_82_83_84Adjust-copy.jpg|projects/Sacred-Oaks/_DSC0211_2_3_4_5_6Adjust-copy.jpg|projects/Sacred-Oaks/_DSC0217_18_19_20_21_22Adjust-copy.jpg|projects/Sacred-Oaks/_DSC0229_30_31_32_33_34Adjust-copy.jpg|projects/Sacred-Oaks/_DSC0235_36_37_38_39_40Adjust-copy.jpg|projects/Sacred-Oaks/_DSC0301_2_3_4_5_6Adjust-copy.jpg|projects/Sacred-Oaks/_DSC0313_4_5_6_7_8Adjust-copy.jpg|projects/Sacred-Oaks/_DSC0325_26_27_28_29_30Adjust-copy.jpg|projects/Sacred-Oaks/_DSC0331_2_3_4_5_6Adjust-copy.jpg|projects/Sacred-Oaks/_DSC0361_2_3_4_5_6Adjust-copy.jpg|projects/Sacred-Oaks/_DSC0397_398_399_400_401_402Adjust-copy.jpg|projects/Sacred-Oaks/_DSC0415_16_17_18_19_20Adjust-copy.jpg|projects/Sacred-Oaks/_DSC0427_28_29_30_31_32Adjust-copy.jpg|projects/Sacred-Oaks/_DSC0433_4_5_6_7_8Adjust-copy.jpg|projects/Sacred-Oaks/_DSC0439_40_41_42_43_44Adjust-copy.jpg|projects/Sacred-Oaks/_DSC0451_2_3_4_5_6Adjust-copy.jpg|projects/Sacred-Oaks/_DSC0457_58_59_60_61_62Adjust-copy.jpg|projects/Sacred-Oaks/_DSC0469_70_71_72_73_74Adjust-copy.jpg|projects/Sacred-Oaks/_DSC0481_2_3_4_5_6Adjust-copy.jpg|projects/Sacred-Oaks/_DSC0499_500_501_502_503_504Adjust-copy.jpg|projects/Sacred-Oaks/_DSC0511_2_3_4_5_6Adjust-copy.jpg|projects/Sacred-Oaks/_DSC0535_36_37_38_39_40Adjust-copy.jpg|projects/Sacred-Oaks/_DSC0541_2_3_4_5_6Adjust-copy.jpg|projects/Sacred-Oaks/_DSC0547_48_49_50_51_52Adjust-copy.jpg|projects/Sacred-Oaks/_DSC0553_4_5_6_7_8Adjust-copy.jpg|projects/Sacred-Oaks/_DSC0559_60_61_62_63_64Adjust-copy.jpg|projects/Sacred-Oaks/photo-61.jpg">
+        <img src="projects/Sacred-Oaks/20131119_113917.jpg" alt="Sacred Oaks" loading="lazy">
+        <div class="pc-veil"></div>
+        <div class="pc-info"><p class="pc-cat">Residential</p><h3 class="pc-title">Sacred Oaks</h3></div>
+      </div>
+
+      <div class="pc" data-cat="residential" data-gallery="projects/Schaab/IMG_1989.jpg|projects/Schaab/IMG_1992.jpg|projects/Schaab/IMG_2011.jpg|projects/Schaab/IMG_2389.jpg|projects/Schaab/IMG_2390.jpg|projects/Schaab/IMG_2401.jpg|projects/Schaab/IMG_2402.jpg">
+        <img src="projects/Schaab/IMG_1986.jpg" alt="Schaab" loading="lazy">
+        <div class="pc-veil"></div>
+        <div class="pc-info"><p class="pc-cat">Residential</p><h3 class="pc-title">Schaab</h3></div>
+      </div>
+
+      <div class="pc" data-cat="residential" data-gallery="projects/Snyder/DSC_1713-Edit-2.jpg|projects/Snyder/DSC_1722-Edit.jpg|projects/Snyder/DSC_1741.jpg|projects/Snyder/DSC_1759-Edit.jpg|projects/Snyder/DSC_1767.jpg|projects/Snyder/DSC_1812-Edit.jpg|projects/Snyder/DSC_1829.jpg|projects/Snyder/DSC_1862.jpg">
+        <img src="projects/Snyder/DSC_1640.jpg" alt="Snyder" loading="lazy">
+        <div class="pc-veil"></div>
+        <div class="pc-info"><p class="pc-cat">Residential</p><h3 class="pc-title">Snyder</h3></div>
+      </div>
+
+      <div class="pc" data-cat="residential" data-gallery="projects/Stotler/IMG-0172_edited.jpg|projects/Stotler/IMG-0173.jpg|projects/Stotler/IMG-0174.jpg|projects/Stotler/IMG-0174_edited.jpg|projects/Stotler/IMG-0175.jpg">
+        <img src="projects/Stotler/IMG-0172.jpg" alt="Stotler" loading="lazy">
+        <div class="pc-veil"></div>
+        <div class="pc-info"><p class="pc-cat">Residential</p><h3 class="pc-title">Stotler</h3></div>
+      </div>
+
+      <div class="pc" data-cat="residential" data-gallery="projects/Treetops/AK2A7888.jpg|projects/Treetops/AK2A7889.jpg|projects/Treetops/AK2A7892.jpg|projects/Treetops/AK2A7906.jpg|projects/Treetops/AK2A7910.jpg|projects/Treetops/AK2A7920.jpg|projects/Treetops/AK2A7929.jpg|projects/Treetops/AK2A7959.jpg|projects/Treetops/AK2A7963.jpg|projects/Treetops/AK2A7973.jpg|projects/Treetops/AK2A7975.jpg|projects/Treetops/AK2A7978.jpg|projects/Treetops/AK2A7982.jpg|projects/Treetops/AK2A7985.jpg|projects/Treetops/AK2A7989.jpg|projects/Treetops/AK2A7991.jpg|projects/Treetops/AK2A7994.jpg|projects/Treetops/AK2A7999.jpg|projects/Treetops/AK2A8007.jpg|projects/Treetops/AK2A8015.jpg|projects/Treetops/AK2A8025.jpg|projects/Treetops/AK2A8030.jpg|projects/Treetops/AK2A8033.jpg|projects/Treetops/AK2A8036.jpg|projects/Treetops/AK2A8039.jpg|projects/Treetops/bedroom-wide-.jpg|projects/Treetops/living-room-3-.jpg|projects/Treetops/living-room-4-.jpg|projects/Treetops/living-room-6-.jpg">
+        <img src="projects/Treetops/AK2A7867.jpg" alt="Treetops" loading="lazy">
+        <div class="pc-veil"></div>
+        <div class="pc-info"><p class="pc-cat">Residential</p><h3 class="pc-title">Treetops</h3></div>
+      </div>
+
+      <div class="pc" data-cat="residential" data-gallery="projects/Venado/VenadoDrive-120.jpg|projects/Venado/VenadoDrive-126.jpg|projects/Venado/VenadoDrive-15.jpg|projects/Venado/VenadoDrive-22.jpg|projects/Venado/VenadoDrive-28.jpg|projects/Venado/VenadoDrive-32.jpg|projects/Venado/VenadoDrive-38.jpg|projects/Venado/VenadoDrive-46.jpg|projects/Venado/VenadoDrive-64.jpg|projects/Venado/VenadoDrive-75.jpg|projects/Venado/VenadoDrive-84.jpg">
+        <img src="projects/Venado/VenadoDrive-110.jpg" alt="Venado" loading="lazy">
+        <div class="pc-veil"></div>
+        <div class="pc-info"><p class="pc-cat">Residential</p><h3 class="pc-title">Venado</h3></div>
+      </div>
+
+      <div class="pc" data-cat="commercial" data-gallery="projects/Whim-Floral/Whim-Florals2.jpg|projects/Whim-Floral/Whim-Florals3.jpg|projects/Whim-Floral/Whim-Florals4.jpg|projects/Whim-Floral/Whim-Florals5.jpg|projects/Whim-Floral/Whim-Florals6.jpg">
+        <img src="projects/Whim-Floral/Whim-Florals1.jpg" alt="Whim Floral" loading="lazy">
+        <div class="pc-veil"></div>
+        <div class="pc-info"><p class="pc-cat">Commercial</p><h3 class="pc-title">Whim Floral</h3></div>
+      </div>
+
+      <div class="pc" data-cat="commercial" data-gallery="projects/Whit-Event-Rental/whim-event-rentals10.jpg|projects/Whit-Event-Rental/whim-event-rentals12.jpg|projects/Whit-Event-Rental/whim-event-rentals13.jpg|projects/Whit-Event-Rental/whim-event-rentals14.jpg|projects/Whit-Event-Rental/whim-event-rentals15.jpg|projects/Whit-Event-Rental/whim-event-rentals18.jpg|projects/Whit-Event-Rental/whim-event-rentals19.jpg|projects/Whit-Event-Rental/whim-event-rentals4.jpg|projects/Whit-Event-Rental/whim-event-rentals7.jpg|projects/Whit-Event-Rental/whim-event-rentals9.jpg">
+        <img src="projects/Whit-Event-Rental/whim-even-rentals17.jpg" alt="Whit Event Rental" loading="lazy">
+        <div class="pc-veil"></div>
+        <div class="pc-info"><p class="pc-cat">Commercial</p><h3 class="pc-title">Whit Event Rental</h3></div>
+      </div>
+
+      <div class="pc" data-cat="residential" data-gallery="projects/Woodward/AK2A2829.jpg|projects/Woodward/AK2A2842.jpg|projects/Woodward/AK2A2855.jpg|projects/Woodward/AK2A2859.jpg|projects/Woodward/AK2A2863.jpg|projects/Woodward/AK2A2875.jpg|projects/Woodward/AK2A2921.jpg|projects/Woodward/AK2A2933-edit.jpg|projects/Woodward/AK2A2933.jpg|projects/Woodward/AK2A2946.jpg|projects/Woodward/AK2A2954.jpg|projects/Woodward/AK2A2973.jpg|projects/Woodward/IMG-3227.jpg|projects/Woodward/IMG-3229.jpg">
+        <img src="projects/Woodward/AK2A2816.jpg" alt="Woodward" loading="lazy">
+        <div class="pc-veil"></div>
+        <div class="pc-info"><p class="pc-cat">Residential</p><h3 class="pc-title">Woodward</h3></div>
+      </div>
+
+      <div class="pc" data-cat="residential" data-gallery="projects/feb-4/DSC_2425.jpg|projects/feb-4/DSC_2694-2.jpg|projects/feb-4/DSC_2742.jpg|projects/feb-4/DSC_2755.jpg|projects/feb-4/DSC_2787.jpg|projects/feb-4/US_BOH_IG_FeedPost_Service.png|projects/feb-4/bedroom-wide-.jpg|projects/feb-4/curtain-detail-.jpg|projects/feb-4/living-room-6-.jpg">
+        <img src="projects/feb-4/AK2A2863-1.jpg" alt="February Residential" loading="lazy">
+        <div class="pc-veil"></div>
+        <div class="pc-info"><p class="pc-cat">Residential</p><h3 class="pc-title">February Residential</h3></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Lightbox -->
+<div class="lb-overlay" id="lbOverlay" role="dialog" aria-modal="true" aria-label="Project gallery">
+  <div class="lb-header">
+    <div class="lb-meta">
+      <p class="lb-cat" id="lbCat"></p>
+      <h2 class="lb-title" id="lbTitle"></h2>
+    </div>
+    <button class="lb-close" id="lbClose" aria-label="Close gallery">&#x2715;</button>
+  </div>
+  <div class="lb-grid" id="lbGrid"></div>
+</div>
+
+<script>
+/* Filter */
+document.querySelectorAll('.f-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.f-btn').forEach(b => b.classList.remove('on'));
+    btn.classList.add('on');
+    const f = btn.dataset.f;
+    document.querySelectorAll('.pc').forEach(c => {
+      const match = f === 'all' || c.dataset.cat === f;
+      c.style.display = match ? '' : 'none';
+    });
+  });
+});
+
+/* Lightbox */
+(function(){
+  const overlay = document.getElementById('lbOverlay');
+  const lbTitle = document.getElementById('lbTitle');
+  const lbCat   = document.getElementById('lbCat');
+  const lbGrid  = document.getElementById('lbGrid');
+  const lbClose = document.getElementById('lbClose');
+
+  function openGallery(card){
+    const cardImg = card.querySelector('img');
+    const title   = card.querySelector('.pc-title') ? card.querySelector('.pc-title').textContent : '';
+    const cat     = card.querySelector('.pc-cat')   ? card.querySelector('.pc-cat').textContent   : '';
+    const extras  = card.dataset.gallery ? card.dataset.gallery.split('|').map(s=>s.trim()) : [];
+    const srcs    = [cardImg ? cardImg.src : ''].concat(extras);
+    lbTitle.textContent = title;
+    lbCat.textContent   = cat;
+    lbGrid.innerHTML    = '';
+    srcs.forEach(src=>{
+      const img = document.createElement('img');
+      img.className = 'lb-grid-img';
+      img.src = src;
+      img.alt = title;
+      lbGrid.appendChild(img);
+    });
+    overlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    overlay.scrollTop = 0;
+    lbClose.focus();
+  }
+
+  function closeGallery(){
+    overlay.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  document.querySelectorAll('.pc').forEach(card=>{
+    card.addEventListener('click', ()=>openGallery(card));
+  });
+  lbClose.addEventListener('click', closeGallery);
+  overlay.addEventListener('click', e=>{ if(e.target===overlay) closeGallery(); });
+  document.addEventListener('keydown', e=>{
+    if(overlay.classList.contains('open') && e.key==='Escape') closeGallery();
+  });
+})();
+</script>
+</body>
+</html>

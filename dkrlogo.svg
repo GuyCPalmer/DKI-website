@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none">
+  <!-- Left horn -->
+  <path d="M18 38 C8 28, 4 16, 10 8 C14 3, 20 4, 24 10 C28 16, 26 26, 30 34" stroke="#B89470" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+  <!-- Right horn -->
+  <path d="M102 38 C112 28, 116 16, 110 8 C106 3, 100 4, 96 10 C92 16, 94 26, 90 34" stroke="#B89470" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+  <!-- Skull shape -->
+  <ellipse cx="60" cy="54" rx="28" ry="24" fill="#F2EDE4" stroke="#B89470" stroke-width="1.5"/>
+  <!-- Brow ridge -->
+  <path d="M36 48 Q60 42 84 48" stroke="#B89470" stroke-width="1" fill="none" opacity="0.5"/>
+  <!-- Left eye socket -->
+  <ellipse cx="50" cy="52" rx="7" ry="6" fill="#B89470" opacity="0.25"/>
+  <ellipse cx="50" cy="52" rx="5" ry="4.5" fill="#B89470" opacity="0.35"/>
+  <!-- Right eye socket -->
+  <ellipse cx="70" cy="52" rx="7" ry="6" fill="#B89470" opacity="0.25"/>
+  <ellipse cx="70" cy="52" rx="5" ry="4.5" fill="#B89470" opacity="0.35"/>
+  <!-- Nose cavity -->
+  <path d="M55 62 Q60 65 65 62 Q63 67 60 68 Q57 67 55 62Z" fill="#B89470" opacity="0.4"/>
+  <!-- Jaw / lower skull -->
+  <path d="M42 68 Q60 78 78 68 Q76 80 60 82 Q44 80 42 68Z" fill="#F2EDE4" stroke="#B89470" stroke-width="1.2"/>
+  <!-- Teeth suggestions -->
+  <line x1="54" y1="77" x2="54" y2="82" stroke="#B89470" stroke-width="0.8" opacity="0.5"/>
+  <line x1="60" y1="78" x2="60" y2="83" stroke="#B89470" stroke-width="0.8" opacity="0.5"/>
+  <line x1="66" y1="77" x2="66" y2="82" stroke="#B89470" stroke-width="0.8" opacity="0.5"/>
+  <!-- DKR text -->
+  <text x="60" y="103" font-family="'Cormorant Garamond', Georgia, serif" font-size="13" font-weight="400" letter-spacing="4" text-anchor="middle" fill="#B89470">DKR</text>
+  <!-- Subtle underline below DKR -->
+  <line x1="38" y1="107" x2="82" y2="107" stroke="#B89470" stroke-width="0.5" opacity="0.5"/>
+</svg>

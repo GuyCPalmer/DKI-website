@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Deborah Kirk Ranches — Interior Design for Ranch Properties</title>
+<meta name="description" content="Deborah Kirk Ranches — Thoughtful interior design for ranch homes, lodges, and Hill Country properties across Texas.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@300;400&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --warm:#FAF8F4;
+  --sand:#F2EDE4;
+  --sand2:#EDE6DA;
+  --clay:#B89470;
+  --clay2:#A07B55;
+  --bark:#6B5A48;
+  --charcoal:#2A2420;
+  --muted:#7B7168;
+  --border:rgba(184,148,112,0.18);
+  --border2:rgba(184,148,112,0.35);
+  --nav-h:80px;
+}
+html{scroll-behavior:smooth;font-size:16px}
+body{background:var(--warm);color:var(--charcoal);font-family:'Jost',sans-serif;font-weight:300;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+button{font-family:'Jost',sans-serif;cursor:pointer;border:none;background:none}
+
+/* NAV */
+#nav{
+  position:fixed;top:0;left:0;right:0;z-index:400;
+  height:var(--nav-h);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 2.5rem;
+  background:rgba(250,248,244,0.96);
+  box-shadow:0 1px 0 var(--border);
+}
+.nav-logo{
+  font-family:'Cormorant Garamond',serif;
+  font-size:15px;font-weight:400;letter-spacing:0.18em;text-transform:uppercase;
+  color:var(--charcoal);display:flex;flex-direction:column;line-height:1.3;
+}
+.nav-logo span{font-size:9.5px;letter-spacing:0.28em;color:var(--clay);text-transform:uppercase}
+.nav-back{
+  font-size:10px;letter-spacing:0.16em;text-transform:uppercase;
+  color:var(--muted);text-decoration:none;transition:color 0.25s;
+  display:flex;align-items:center;gap:0.5rem;
+}
+.nav-back:hover{color:var(--clay)}
+.nav-book-btn{
+  padding:9px 16px;border:0.5px solid var(--clay);
+  font-size:10px;letter-spacing:0.14em;text-transform:uppercase;
+  color:var(--clay);transition:all 0.25s;cursor:pointer;text-decoration:none;display:inline-block;
+}
+.nav-book-btn:hover{background:var(--clay);color:var(--warm)}
+
+/* HERO */
+.hero{
+  padding-top:var(--nav-h);
+  min-height:70vh;
+  display:flex;align-items:center;justify-content:center;
+  text-align:center;
+  background:var(--charcoal);
+  position:relative;overflow:hidden;
+}
+.hero-bg{
+  position:absolute;inset:0;
+  background:linear-gradient(to bottom,rgba(42,36,32,0.55),rgba(42,36,32,0.75));
+  z-index:1;
+}
+.hero-content{position:relative;z-index:2;padding:4rem 2rem;max-width:760px}
+.hero-eyebrow{font-size:10px;letter-spacing:0.36em;text-transform:uppercase;color:var(--clay);margin-bottom:1.5rem}
+.hero-h1{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(40px,6vw,76px);font-weight:300;
+  color:var(--warm);line-height:1.1;margin-bottom:1.8rem;
+}
+.hero-h1 em{font-style:italic;color:var(--clay)}
+.hero-desc{font-size:16px;line-height:1.9;color:rgba(244,239,230,0.75);max-width:560px;margin:0 auto 2.5rem}
+.btn-fill{
+  display:inline-block;
+  padding:13px 32px;background:var(--clay);
+  font-size:10.5px;letter-spacing:0.2em;text-transform:uppercase;
+  color:var(--warm);text-decoration:none;transition:background 0.25s;
+}
+.btn-fill:hover{background:var(--clay2)}
+
+/* INTRO */
+.intro{padding:6rem 5rem;background:var(--warm);display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center}
+.intro-eyebrow{font-size:10px;letter-spacing:0.32em;text-transform:uppercase;color:var(--clay);margin-bottom:1.5rem;display:flex;align-items:center;gap:1rem}
+.intro-eyebrow::before{content:'';display:block;width:24px;height:0.5px;background:var(--clay)}
+.intro h2{font-family:'Cormorant Garamond',serif;font-size:clamp(30px,3.6vw,48px);font-weight:300;color:var(--charcoal);line-height:1.18;margin-bottom:1.8rem}
+.intro h2 em{font-style:italic;color:var(--clay2)}
+.intro p{font-size:14.5px;line-height:1.95;color:var(--muted);margin-bottom:1.2rem}
+.intro-visual{background:var(--sand2);aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;color:var(--clay);font-size:11px;letter-spacing:0.2em;text-transform:uppercase}
+
+/* SERVICES */
+.services{padding:6rem 5rem;background:var(--sand)}
+.section-eyebrow{font-size:10px;letter-spacing:0.32em;text-transform:uppercase;color:var(--clay);margin-bottom:3rem;display:flex;align-items:center;gap:1rem}
+.section-eyebrow::before{content:'';display:block;width:24px;height:0.5px;background:var(--clay)}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--border)}
+.svc-card{background:var(--sand);padding:3rem 2.5rem;position:relative;overflow:hidden;transition:background 0.3s}
+.svc-card:hover{background:var(--warm)}
+.svc-n{font-size:10.5px;letter-spacing:0.22em;color:var(--clay);margin-bottom:1.8rem}
+.svc-title{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:300;color:var(--charcoal);margin-bottom:1rem;line-height:1.2}
+.svc-desc{font-size:14.5px;line-height:1.9;color:var(--muted)}
+
+/* CONTACT STRIP */
+.contact-strip{
+  background:var(--charcoal);padding:5rem;
+  text-align:center;
+}
+.contact-strip h2{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,3.5vw,46px);font-weight:300;color:var(--warm);line-height:1.2;margin-bottom:1rem}
+.contact-strip h2 em{font-style:italic;color:var(--clay)}
+.contact-strip p{font-size:15px;color:rgba(244,239,230,0.6);margin-bottom:2.5rem}
+
+/* FOOTER */
+footer{
+  background:var(--charcoal);padding:2.2rem 5rem;
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;
+  border-top:0.5px solid rgba(255,255,255,0.06);
+}
+.footer-logo{font-family:'Cormorant Garamond',serif;font-size:14px;letter-spacing:0.16em;color:rgba(244,239,230,0.55)}
+.footer-copy{font-size:10px;letter-spacing:0.14em;color:rgba(244,239,230,0.3)}
+.footer-social{display:flex;gap:1.4rem;list-style:none}
+.footer-social a{font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(244,239,230,0.45);transition:color 0.2s;text-decoration:none}
+.footer-social a:hover{color:var(--clay)}
+
+@media(max-width:768px){
+  .intro{grid-template-columns:1fr;padding:4rem 2rem;gap:3rem}
+  .svc-grid{grid-template-columns:1fr}
+  .services,.contact-strip{padding:4rem 2rem}
+  footer{padding:2rem;flex-direction:column;text-align:center}
+  #nav{padding:0 1.5rem}
+}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="nav-logo">
+    <span style="display:flex;flex-direction:column;align-items:center;gap:1px">
+      <img src="Skull.png" alt="Deborah Kirk Ranches" style="height:36px;width:auto;display:block;mix-blend-mode:multiply">
+      <span style="font-family:'Cormorant Garamond',serif;font-size:9px;letter-spacing:0.28em;text-transform:uppercase;color:var(--clay);line-height:1">DKR</span>
+    </span>
+    <span style="display:flex;flex-direction:column;line-height:1.3">
+      <span style="font-family:'Cormorant Garamond',serif;font-size:15px;letter-spacing:0.18em;text-transform:uppercase;color:var(--clay)">Deborah Kirk Ranches</span>
+      <span style="font-size:9px;letter-spacing:0.28em;text-transform:uppercase;color:var(--muted)">A Division of Deborah Kirk Interiors</span>
+    </span>
+  </div>
+  <div style="display:flex;align-items:center;gap:1.8rem">
+    <a href="index.html" class="nav-back">← Deborah Kirk Interiors</a>
+    <a href="index.html#booking" class="nav-book-btn">Book a consultation</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Deborah Kirk Ranches</p>
+    <h1 class="hero-h1">Design built for<br>the <em>land you love</em>.</h1>
+    <p class="hero-desc">Bringing the warmth, craft, and collected character of Deborah Kirk Interiors to ranch homes, lodges, and Hill Country retreats across Texas.</p>
+    <a href="index.html" onclick="sessionStorage.setItem('openPage','booking')" class="btn-fill">Start a conversation</a>
+  </div>
+</section>
+
+<!-- INTRO -->
+<section class="intro">
+  <div>
+    <div class="intro-eyebrow"><span>The philosophy</span></div>
+    <h2>Ranch living deserves the same <em>intention</em> as any home.</h2>
+    <p>A ranch property carries its own kind of history — the land, the light, the way life moves through it. Deborah brings her signature approach of layering antiques, architecturals, and gathered objects to spaces that feel rooted in place and built to last.</p>
+    <p>Whether it's a primary residence on a working ranch, a weekend retreat, or a hospitality property, every project begins with the same question: how does life move through this space?</p>
+  </div>
+  <div class="intro-visual">
+    Ranch imagery coming soon
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services">
+  <div class="section-eyebrow"><span>What we offer</span></div>
+  <div class="svc-grid">
+    <div class="svc-card">
+      <p class="svc-n">01</p>
+      <h3 class="svc-title">Ranch Residence Design</h3>
+      <p class="svc-desc">Full-service interior design for primary and secondary ranch homes — from concept through installation, with an eye toward warmth, durability, and a deep sense of place.</p>
+    </div>
+    <div class="svc-card">
+      <p class="svc-n">02</p>
+      <h3 class="svc-title">Lodge & Retreat Interiors</h3>
+      <p class="svc-desc">Designing lodges, guesthouses, and event spaces that feel welcoming and intentional — spaces that leave a lasting impression on everyone who walks through.</p>
+    </div>
+    <div class="svc-card">
+      <p class="svc-n">03</p>
+      <h3 class="svc-title">Antique & Object Curation</h3>
+      <p class="svc-desc">Sourcing antiques, architectural salvage, and one-of-a-kind objects that ground a ranch interior in history and give every room a story worth telling.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-strip">
+  <h2>Let's talk about<br>your <em>property</em>.</h2>
+  <p>Every ranch is different. Reach out to start a conversation about your vision.</p>
+  <a href="index.html" class="btn-fill">Book a consultation</a>
+</section>
+
+<footer>
+  <span class="footer-logo">Deborah Kirk Ranches</span>
+  <span class="footer-copy">© 2026 Deborah Kirk Interiors · Dripping Springs, TX</span>
+  <ul class="footer-social">
+    <li><a href="https://www.instagram.com/deborah_kirk_interiors/" target="_blank" rel="noopener">Instagram</a></li>
+    <li><a href="https://www.houzz.com/pro/deborahpk/__public" target="_blank" rel="noopener">Houzz</a></li>
+    <li><a href="https://www.linkedin.com/in/deborahpkirk/" target="_blank" rel="noopener">LinkedIn</a></li>
+  </ul>
+</footer>
+
+</body>
+</html>
