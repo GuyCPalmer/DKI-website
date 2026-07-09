@@ -93,15 +93,53 @@ button{font-family:'Jost',sans-serif;cursor:pointer;border:none;background:none}
 .intro h2{font-family:'Cormorant Garamond',serif;font-size:clamp(30px,3.6vw,48px);font-weight:300;color:var(--charcoal);line-height:1.18;margin-bottom:1.8rem}
 .intro h2 em{font-style:italic;color:var(--clay2)}
 .intro p{font-size:14.5px;line-height:1.95;color:var(--muted);margin-bottom:1.2rem}
-.intro-visual{background:var(--sand2);aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;color:var(--clay);font-size:11px;letter-spacing:0.2em;text-transform:uppercase}
+.intro-quote{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:18px;color:var(--clay2);line-height:1.65;border-left:1.5px solid var(--clay);padding-left:1.5rem;margin-top:2rem}
+.intro-quote cite{display:block;font-family:'Jost',sans-serif;font-style:normal;font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);margin-top:0.9rem}
+.intro-visual{background:var(--sand2);aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;color:var(--clay);font-size:11px;letter-spacing:0.2em;text-transform:uppercase;overflow:hidden;position:relative}
+.intro-visual img{width:100%;height:100%;object-fit:cover;display:block}
+.intro-badge{position:absolute;bottom:1.6rem;left:0;background:var(--charcoal);color:var(--sand);font-size:10px;letter-spacing:0.2em;text-transform:uppercase;padding:10px 18px;white-space:nowrap}
+
+/* PROPERTIES */
+.properties{padding:2rem 5rem 6rem;background:var(--sand)}
+.property{display:grid;grid-template-columns:1.1fr 1fr;gap:5rem;align-items:center;padding:4rem 0;border-top:0.5px solid var(--border)}
+.property:first-of-type{border-top:none;padding-top:1rem}
+.property.reverse{direction:rtl}
+.property.reverse>*{direction:ltr}
+.property-media{aspect-ratio:4/3;overflow:hidden;background:var(--sand2)}
+.property-media img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.6s}
+.property-media:hover img{transform:scale(1.03)}
+.property-eyebrow{font-size:10px;letter-spacing:0.28em;text-transform:uppercase;color:var(--clay);margin-bottom:1rem}
+.property-copy h3{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,3.2vw,42px);font-weight:300;color:var(--charcoal);margin-bottom:1.2rem;line-height:1.15}
+.property-copy p{font-size:14.5px;line-height:1.95;color:var(--muted);margin-bottom:1.1rem}
+.property-btn{margin-top:0.8rem;padding:11px 26px;border:0.5px solid var(--clay);font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:var(--clay);background:none;transition:all 0.25s;cursor:pointer;font-family:'Jost',sans-serif}
+.property-btn:hover{background:var(--clay);color:var(--warm)}
+
+/* LIGHTBOX (shared) */
+.lb-overlay{position:fixed;inset:0;z-index:1000;background:rgba(28,22,16,0.96);display:flex;flex-direction:column;opacity:0;pointer-events:none;transition:opacity 0.35s;overflow-y:auto}
+.lb-overlay.open{opacity:1;pointer-events:auto}
+.lb-header{position:sticky;top:0;left:0;right:0;display:flex;align-items:center;justify-content:space-between;padding:1.4rem 2.5rem;background:rgba(28,22,16,0.97);border-bottom:0.5px solid rgba(255,255,255,0.08);z-index:2;flex-shrink:0}
+.lb-meta{display:flex;flex-direction:column;gap:0.25rem}
+.lb-cat{font-size:9.5px;letter-spacing:0.26em;text-transform:uppercase;color:var(--clay)}
+.lb-title{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:300;color:var(--warm);letter-spacing:0.02em}
+.lb-close{width:42px;height:42px;border:0.5px solid rgba(255,255,255,0.2);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.7);font-size:20px;line-height:1;cursor:pointer;transition:border-color 0.2s,color 0.2s;flex-shrink:0;background:none}
+.lb-close:hover{border-color:var(--clay);color:var(--clay)}
+.lb-grid{display:flex;flex-direction:column;gap:20px;padding:20px;width:100%;box-sizing:border-box;align-items:center}
+.lb-grid-img{display:block;width:auto;height:auto;max-width:calc(100vw - 40px);max-height:88vh;object-fit:contain;margin:0 auto}
+
+/* MORE PROJECTS CTA */
+.more-projects{padding:5rem;background:var(--sand2);text-align:center;border-top:0.5px solid var(--border2);border-bottom:0.5px solid var(--border2)}
+.more-projects .section-eyebrow{justify-content:center;margin-bottom:1.5rem}
+.more-projects h2{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,3.4vw,44px);font-weight:300;color:var(--charcoal);line-height:1.2;margin-bottom:1.2rem}
+.more-projects h2 em{font-style:italic;color:var(--clay2)}
+.more-projects p{font-size:14.5px;line-height:1.9;color:var(--muted);max-width:520px;margin:0 auto 2.2rem}
 
 /* SERVICES */
-.services{padding:6rem 5rem;background:var(--sand)}
+.services{padding:6rem 5rem;background:var(--warm)}
 .section-eyebrow{font-size:10px;letter-spacing:0.32em;text-transform:uppercase;color:var(--clay);margin-bottom:3rem;display:flex;align-items:center;gap:1rem}
 .section-eyebrow::before{content:'';display:block;width:24px;height:0.5px;background:var(--clay)}
 .svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--border)}
-.svc-card{background:var(--sand);padding:3rem 2.5rem;position:relative;overflow:hidden;transition:background 0.3s}
-.svc-card:hover{background:var(--warm)}
+.svc-card{background:var(--warm);padding:3rem 2.5rem;position:relative;overflow:hidden;transition:background 0.3s}
+.svc-card:hover{background:var(--sand)}
 .svc-n{font-size:10.5px;letter-spacing:0.22em;color:var(--clay);margin-bottom:1.8rem}
 .svc-title{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:300;color:var(--charcoal);margin-bottom:1rem;line-height:1.2}
 .svc-desc{font-size:14.5px;line-height:1.9;color:var(--muted)}
@@ -131,6 +169,8 @@ footer{
   .intro{grid-template-columns:1fr;padding:4rem 2rem;gap:3rem}
   .svc-grid{grid-template-columns:1fr}
   .services,.contact-strip{padding:4rem 2rem}
+  .properties{padding:1rem 1.5rem 4rem}
+  .property,.property.reverse{grid-template-columns:1fr;direction:ltr;gap:2rem;padding:3rem 0}
   footer{padding:2rem;flex-direction:column;text-align:center}
   #nav{padding:0 1.5rem}
 }
@@ -146,12 +186,11 @@ footer{
     </span>
     <span style="display:flex;flex-direction:column;line-height:1.3">
       <span style="font-family:'Cormorant Garamond',serif;font-size:15px;letter-spacing:0.18em;text-transform:uppercase;color:var(--clay)">Deborah Kirk Ranches</span>
-      <span style="font-size:9px;letter-spacing:0.28em;text-transform:uppercase;color:var(--muted)">A Division of Deborah Kirk Interiors</span>
     </span>
   </div>
   <div style="display:flex;align-items:center;gap:1.8rem">
     <a href="index.html" class="nav-back">← Deborah Kirk Interiors</a>
-    <a href="index.html#booking" class="nav-book-btn">Book a consultation</a>
+    <a href="contact.html" class="nav-book-btn">Book a consultation</a>
   </div>
 </nav>
 
@@ -162,7 +201,7 @@ footer{
     <p class="hero-eyebrow">Deborah Kirk Ranches</p>
     <h1 class="hero-h1">Design built for<br>the <em>land you love</em>.</h1>
     <p class="hero-desc">Bringing the warmth, craft, and collected character of Deborah Kirk Interiors to ranch homes, lodges, and Hill Country retreats across Texas.</p>
-    <a href="index.html" onclick="sessionStorage.setItem('openPage','booking')" class="btn-fill">Start a conversation</a>
+    <a href="contact.html" class="btn-fill">Start a conversation</a>
   </div>
 </section>
 
@@ -173,10 +212,51 @@ footer{
     <h2>Ranch living deserves the same <em>intention</em> as any home.</h2>
     <p>A ranch property carries its own kind of history — the land, the light, the way life moves through it. Deborah brings her signature approach of layering antiques, architecturals, and gathered objects to spaces that feel rooted in place and built to last.</p>
     <p>Whether it's a primary residence on a working ranch, a weekend retreat, or a hospitality property, every project begins with the same question: how does life move through this space?</p>
+    <blockquote class="intro-quote">"Ranch work asks you to slow down and really look at how a family lives outdoors — that's where the best ideas come from."<cite>— Deborah Kirk</cite></blockquote>
   </div>
   <div class="intro-visual">
-    Ranch imagery coming soon
+    <img src="projects/Big-Wells-Ranch/JRP_DKI_02_1037-Edit.jpg" alt="Aerial view of the main house at Big Wells Ranch at golden hour" loading="lazy">
+    <span class="intro-badge">Big Wells Ranch, South Texas</span>
   </div>
+</section>
+
+<!-- FEATURED PROPERTIES -->
+<section class="properties" id="properties">
+  <div class="section-eyebrow" style="padding:0 0.5rem"><span>Featured properties</span></div>
+
+  <div class="property" data-title="Big Wells Ranch" data-cat="South Texas Brush Country" data-gallery="projects/Big-Wells-Ranch/JRP_DKI_01_7721-Edit.jpg|projects/Big-Wells-Ranch/JRP_DKI_01_7748-Edit.jpg|projects/Big-Wells-Ranch/JRP_DKI_01_7762-Edit.jpg|projects/Big-Wells-Ranch/JRP_DKI_01_7788-Edit.jpg|projects/Big-Wells-Ranch/JRP_DKI_01_7813-Edit.jpg|projects/Big-Wells-Ranch/JRP_DKI_01_7864-Edit.jpg|projects/Big-Wells-Ranch/JRP_DKI_01_7873-Edit.jpg|projects/Big-Wells-Ranch/JRP_DKI_01_7899-Edit.jpg|projects/Big-Wells-Ranch/JRP_DKI_01_7916-Edit.jpg|projects/Big-Wells-Ranch/JRP_DKI_01_7928-Edit.jpg|projects/Big-Wells-Ranch/JRP_DKI_01_7969-Edit.jpg|projects/Big-Wells-Ranch/JRP_DKI_01_8001-Edit.jpg|projects/Big-Wells-Ranch/JRP_DKI_01_8013-Edit.jpg|projects/Big-Wells-Ranch/JRP_DKI_01_8021-Edit.jpg|projects/Big-Wells-Ranch/JRP_DKI_01_8072-Edit.jpg|projects/Big-Wells-Ranch/JRP_DKI_01_8089-Edit.jpg|projects/Big-Wells-Ranch/JRP_DKI_01_8101-Edit.jpg|projects/Big-Wells-Ranch/JRP_DKI_01_8121-Edit.jpg|projects/Big-Wells-Ranch/JRP_DKI_02_1001-Edit.jpg|projects/Big-Wells-Ranch/JRP_DKI_02_1002-Edit.jpg|projects/Big-Wells-Ranch/JRP_DKI_02_1003-Edit.jpg|projects/Big-Wells-Ranch/JRP_DKI_02_1004-Edit.jpg|projects/Big-Wells-Ranch/JRP_DKI_02_1006-Edit.jpg|projects/Big-Wells-Ranch/JRP_DKI_02_1007-Edit.jpg|projects/Big-Wells-Ranch/JRP_DKI_02_1008-Edit.jpg|projects/Big-Wells-Ranch/JRP_DKI_02_1010-Edit.jpg|projects/Big-Wells-Ranch/JRP_DKI_02_1011-Edit.jpg|projects/Big-Wells-Ranch/JRP_DKI_02_1012-Edit.jpg|projects/Big-Wells-Ranch/JRP_DKI_02_1013-Edit.jpg|projects/Big-Wells-Ranch/JRP_DKI_02_1016-Edit.jpg|projects/Big-Wells-Ranch/JRP_DKI_02_1018-Edit.jpg|projects/Big-Wells-Ranch/JRP_DKI_02_1024-Edit.jpg|projects/Big-Wells-Ranch/JRP_DKI_02_1026-Edit.jpg|projects/Big-Wells-Ranch/JRP_DKI_02_1028-Edit.jpg|projects/Big-Wells-Ranch/JRP_DKI_02_1030-Edit.jpg|projects/Big-Wells-Ranch/JRP_DKI_02_1031-Edit.jpg|projects/Big-Wells-Ranch/JRP_DKI_02_1032-Edit.jpg|projects/Big-Wells-Ranch/JRP_DKI_02_1037-Edit.jpg|projects/Big-Wells-Ranch/JRP_DKI_02_1038-Edit.jpg">
+    <div class="property-media">
+      <img src="projects/Big-Wells-Ranch/JRP_DKI_01_7862-Edit.jpg" alt="Trophy lodge great room at Big Wells Ranch" loading="lazy">
+    </div>
+    <div class="property-copy">
+      <p class="property-eyebrow">South Texas Brush Country</p>
+      <h3>Big Wells Ranch</h3>
+      <p>A working hunting ranch built around a namesake heart-shaped lake, where the brief called for interiors that could stand up to boots, dogs, and long days outdoors without losing an ounce of warmth. In the main house, dark cabinetry, hand-glazed tile, and leather counter stools keep the open kitchen clubby and lived-in.</p>
+      <p>Just steps away, a reclaimed-wood lodge houses a curated wall of sporting trophies and hides — cowhide, zebra, and antique textiles layered against timber-beamed ceilings for a room built for gathering after the hunt.</p>
+      <button class="property-btn" type="button">View full gallery</button>
+    </div>
+  </div>
+
+  <div class="property reverse" data-title="Indianhead Ranch" data-cat="Texas Hill Country" data-gallery="projects/Indianhead-Ranch/Bar.jpg|projects/Indianhead-Ranch/Barn-Exterior.jpg|projects/Indianhead-Ranch/Barn-Interior.jpg|projects/Indianhead-Ranch/Barn-Patio.jpg|projects/Indianhead-Ranch/Butlers-Pantry.jpg|projects/Indianhead-Ranch/Casita-Interior.jpg|projects/Indianhead-Ranch/Casitas-Exterior.jpg|projects/Indianhead-Ranch/Dining-Room-Lights-On.jpg|projects/Indianhead-Ranch/Dining-Room.jpg|projects/Indianhead-Ranch/Front-Exterior-Detail.jpg|projects/Indianhead-Ranch/Front-Exterior-Tighter.jpg|projects/Indianhead-Ranch/Kitchen-2.jpg|projects/Indianhead-Ranch/Kitchen.jpg|projects/Indianhead-Ranch/Living-Room-Lights-On.jpg|projects/Indianhead-Ranch/Living-Room.jpg|projects/Indianhead-Ranch/Outdoor-Fireplace-V2.jpg|projects/Indianhead-Ranch/Outdoor-Fireplace.jpg|projects/Indianhead-Ranch/Pool-Breezeway-Lights-On.jpg|projects/Indianhead-Ranch/Pool-Breezeway.jpg|projects/Indianhead-Ranch/Pool-Deck.jpg|projects/Indianhead-Ranch/Powder-Room.jpg|projects/Indianhead-Ranch/Primary-Bath-Vanity-Lights-On.jpg|projects/Indianhead-Ranch/Primary-Bath-Vanity.jpg|projects/Indianhead-Ranch/Primary-Bathtub-Lights-On.jpg|projects/Indianhead-Ranch/Primary-Bathtub.jpg|projects/Indianhead-Ranch/Primary-Bedroom-Lights-On.jpg|projects/Indianhead-Ranch/Primary-Bedroom.jpg|projects/Indianhead-Ranch/Tower-Ceiling-Detail.jpg">
+    <div class="property-media">
+      <img src="projects/Indianhead-Ranch/Front-Exterior.jpg" alt="Limestone hacienda at Indianhead Ranch at sunset" loading="lazy">
+    </div>
+    <div class="property-copy">
+      <p class="property-eyebrow">Texas Hill Country</p>
+      <h3>Indianhead Ranch</h3>
+      <p>A limestone hacienda set high above the surrounding hill country, its barrel-tile roofline and courtyards angled to catch the sunset. Inside, vaulted pine ceilings, iron chandeliers, and a wall of mounted game anchor the great room, while walls of glass fold open to a covered dining terrace built for entertaining.</p>
+      <p>The primary suite pairs reclaimed-wood furniture with an antique rug and rotating art, and the same warm, collected sensibility carries out to the property's barn, casitas, and pool breezeway.</p>
+      <button class="property-btn" type="button">View full gallery</button>
+    </div>
+  </div>
+</section>
+
+<!-- MORE PROJECTS CTA -->
+<section class="more-projects">
+  <div class="section-eyebrow"><span>Explore more</span></div>
+  <h2>Ranches are just <em>one chapter</em>.</h2>
+  <p>From Hill Country ranches to residential and hospitality spaces, explore some of Deborah Kirk's recent projects.</p>
+  <a href="all-projects.html" class="btn-fill">View all projects</a>
 </section>
 
 <!-- SERVICES -->
@@ -205,7 +285,7 @@ footer{
 <section class="contact-strip">
   <h2>Let's talk about<br>your <em>property</em>.</h2>
   <p>Every ranch is different. Reach out to start a conversation about your vision.</p>
-  <a href="index.html" class="btn-fill">Book a consultation</a>
+  <a href="contact.html" class="btn-fill">Book a consultation</a>
 </section>
 
 <footer>
@@ -217,6 +297,64 @@ footer{
     <li><a href="https://www.linkedin.com/in/deborahpkirk/" target="_blank" rel="noopener">LinkedIn</a></li>
   </ul>
 </footer>
+
+<!-- Lightbox -->
+<div class="lb-overlay" id="lbOverlay" role="dialog" aria-modal="true" aria-label="Property gallery">
+  <div class="lb-header">
+    <div class="lb-meta">
+      <p class="lb-cat" id="lbCat"></p>
+      <h2 class="lb-title" id="lbTitle"></h2>
+    </div>
+    <button class="lb-close" id="lbClose" aria-label="Close gallery">&#x2715;</button>
+  </div>
+  <div class="lb-grid" id="lbGrid"></div>
+</div>
+
+<script>
+(function(){
+  const overlay = document.getElementById('lbOverlay');
+  const lbTitle = document.getElementById('lbTitle');
+  const lbCat   = document.getElementById('lbCat');
+  const lbGrid  = document.getElementById('lbGrid');
+  const lbClose = document.getElementById('lbClose');
+
+  function openGallery(property){
+    const cardImg = property.querySelector('.property-media img');
+    const title   = property.dataset.title || '';
+    const cat     = property.dataset.cat   || '';
+    const extras  = property.dataset.gallery ? property.dataset.gallery.split('|').map(s=>s.trim()) : [];
+    const srcs    = [cardImg ? cardImg.src : ''].concat(extras);
+    lbTitle.textContent = title;
+    lbCat.textContent   = cat;
+    lbGrid.innerHTML    = '';
+    srcs.forEach(src=>{
+      const img = document.createElement('img');
+      img.className = 'lb-grid-img';
+      img.src = src;
+      img.alt = title;
+      lbGrid.appendChild(img);
+    });
+    overlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    overlay.scrollTop = 0;
+    lbClose.focus();
+  }
+
+  function closeGallery(){
+    overlay.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  document.querySelectorAll('.property').forEach(property=>{
+    property.querySelector('.property-btn').addEventListener('click', ()=>openGallery(property));
+  });
+  lbClose.addEventListener('click', closeGallery);
+  overlay.addEventListener('click', e=>{ if(e.target===overlay) closeGallery(); });
+  document.addEventListener('keydown', e=>{
+    if(overlay.classList.contains('open') && e.key==='Escape') closeGallery();
+  });
+})();
+</script>
 
 </body>
 </html>
