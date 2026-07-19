@@ -95,10 +95,12 @@ body{font-family:'Jost',sans-serif;background:#FAF8F4;color:#28231C}
   z-index:3;
 }
 .hz-arrow:hover{border-color:var(--clay);color:var(--clay)}
+.swipe-hint{display:none}
 @media(max-width:700px){
   .hz-spacer{flex:0 0 calc(50% - 130px)}
   .press-card{flex-basis:260px}
   .hz-arrow{display:none}
+  .swipe-hint{display:flex;align-items:center;justify-content:center;gap:0.6rem;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);margin-top:0.5rem}
 }
 .press-pub{font-size:10px;letter-spacing:0.24em;text-transform:uppercase;color:var(--clay);margin-bottom:1rem}
 .press-title{font-family:'Cormorant Garamond',serif;font-size:21px;font-weight:300;color:var(--charcoal);line-height:1.25;margin-bottom:1rem}
@@ -349,6 +351,7 @@ footer{background:var(--charcoal);padding:3rem 5rem;display:flex;align-items:cen
   </div>
   <button class="hz-arrow" id="pcNext" aria-label="Next article">&#8594;</button>
   </div>
+  <p class="swipe-hint">&#8592; Swipe to explore &#8594;</p>
 </section>
 
 <!-- INQUIRIES -->
