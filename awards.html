@@ -39,29 +39,63 @@ body{font-family:'Jost',sans-serif;background:#FAF8F4;color:#28231C}
   position:fixed;top:0;left:0;right:0;z-index:400;
   height:var(--nav-h);
   display:flex;align-items:center;justify-content:space-between;
-  padding:0 2rem;gap:1.5rem;
+  padding:0 2rem;
+  gap:1.5rem;
   background:rgba(250,248,244,0.96);
   box-shadow:0 1px 0 var(--border);
 }
-.nav-left{display:flex;align-items:center;gap:1.5rem}
-.nav-logo{display:flex;align-items:center;gap:0.85rem}
-.logo-mark{height:38px;width:auto}
+.nav-logo{
+  font-family:'Cormorant Garamond',serif;
+  font-size:15.5px;font-weight:400;letter-spacing:0.2em;text-transform:uppercase;
+  color:var(--charcoal);
+  display:flex;align-items:center;gap:0.75rem;
+}
+.nav-brand-group{display:flex;align-items:center;gap:0.6rem}
 .nav-brand-name{font-family:'Cormorant Garamond',serif;font-size:15px;font-weight:400;letter-spacing:0.18em;text-transform:uppercase;color:var(--charcoal)}
+.logo-mark{height:48px;width:auto;display:block;mix-blend-mode:multiply}
+.nav-left{display:flex;align-items:center;gap:1.5rem}
 .nav-right{display:flex;align-items:center;gap:1.5rem;margin-left:auto}
 .nav-links{display:flex;gap:1.3rem;list-style:none;align-items:center}
 .nav-links a{
-  font-size:10.5px;letter-spacing:0.18em;text-transform:uppercase;
-  color:var(--muted);text-decoration:none;position:relative;padding-bottom:2px;
-  transition:color 0.25s;cursor:pointer;
+  font-size:10.5px;font-weight:300;letter-spacing:0.14em;text-transform:uppercase;
+  color:var(--muted);text-decoration:none;transition:color 0.25s;position:relative;cursor:pointer;
 }
-.nav-links a:hover{color:var(--charcoal)}
+.nav-links a::after{
+  content:'';position:absolute;bottom:-3px;left:0;width:0;height:0.5px;
+  background:var(--clay);transition:width 0.3s;
+}
+.nav-links a:hover,
 .nav-links a.current{color:var(--charcoal)}
+.nav-links a:hover::after,
+.nav-links a.current::after{width:100%}
 .nav-book-btn{
-  padding:9px 20px;font-size:10px;letter-spacing:0.18em;text-transform:uppercase;
-  background:var(--charcoal);color:var(--sand);font-family:'Jost',sans-serif;
-  border:none;cursor:pointer;transition:background 0.25s;text-decoration:none;
+  padding:9px 16px;border:0.5px solid var(--clay);
+  font-size:10px;letter-spacing:0.14em;text-transform:uppercase;
+  color:var(--clay);transition:all 0.25s;cursor:pointer;background:none;font-family:'Jost',sans-serif;text-decoration:none;display:inline-block;
 }
-.nav-book-btn:hover{background:var(--clay)}
+.nav-book-btn:hover{background:var(--clay);color:var(--warm)}
+.nav-ham{display:none;flex-direction:column;gap:5px;padding:6px;cursor:pointer}
+.nav-ham span{display:block;width:22px;height:0.5px;background:var(--charcoal)}
+
+/* MOBILE DRAWER */
+.drawer{
+  position:fixed;top:0;right:0;bottom:0;width:260px;
+  background:var(--sand);border-left:0.5px solid var(--border2);
+  z-index:500;transform:translateX(110%);transition:transform 0.38s cubic-bezier(0.25,0.46,0.45,0.94);
+  display:flex;flex-direction:column;padding:5rem 2rem 2rem;gap:0.5rem;
+}
+.drawer.open{transform:translateX(0)}
+.drawer a{
+  font-size:13px;letter-spacing:0.1em;color:var(--charcoal);
+  padding:1rem 0;border-bottom:0.5px solid var(--border);cursor:pointer;text-decoration:none;display:block;
+}
+.drawer-overlay{position:fixed;inset:0;background:rgba(40,35,28,0.45);z-index:490;display:none}
+.drawer-overlay.open{display:block}
+@media(max-width:940px){
+  #nav{padding:0 1.5rem}
+  .nav-links,.nav-book-btn{display:none}
+  .nav-ham{display:flex}
+}
 
 /* HERO */
 .booking-hero{
@@ -95,6 +129,8 @@ body{font-family:'Jost',sans-serif;background:#FAF8F4;color:#28231C}
 }
 .award-hl-img{width:100%;aspect-ratio:4/3;overflow:hidden}
 .award-hl-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.5s ease}
+.award-hl-img.fit-contain{background:var(--sand)}
+.award-hl-img.fit-contain img{object-fit:contain;padding:1.5rem}
 .award-hl-body{padding:1.8rem 2rem 2.2rem}
 .award-hl-card.active{
   transform:scale(1.08);opacity:1;
@@ -161,22 +197,39 @@ footer{background:var(--charcoal);padding:3rem 5rem;text-align:center}
 </head>
 <body>
 
+<div class="drawer-overlay" id="dOverlay" onclick="closeDrawer()"></div>
+<div class="drawer" id="drawer">
+  <a href="index.html">Home</a>
+  <a href="index.html#about">About</a>
+  <a href="all-projects.html">Portfolio</a>
+  <a href="index.html#services">Services</a>
+  <a href="press.html">Press</a>
+  <a href="awards.html">Awards</a>
+  <a href="contact.html">Contact</a>
+</div>
+
 <nav id="nav">
   <div class="nav-left">
     <div class="nav-logo">
       <img class="logo-mark" src="dkilogo2.png" alt="Deborah Kirk Interiors logo">
-      <span class="nav-brand-name">Deborah Kirk Interiors</span>
+      <span class="nav-brand-group">
+        <span class="nav-brand-name">Deborah Kirk Interiors</span>
+      </span>
     </div>
   </div>
   <div class="nav-right">
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
+      <li><a href="index.html#about">About</a></li>
       <li><a href="all-projects.html">Portfolio</a></li>
+      <li><a href="index.html#services">Services</a></li>
       <li><a href="press.html">Press</a></li>
       <li><a href="awards.html" class="current">Awards</a></li>
+      <li><a href="contact.html">Contact</a></li>
     </ul>
     <a class="nav-book-btn" href="contact.html">Book a consultation</a>
   </div>
+  <div class="nav-ham" onclick="openDrawer()"><span></span><span></span><span></span></div>
 </nav>
 
 <div class="booking-hero">
@@ -193,27 +246,27 @@ footer{background:var(--charcoal);padding:3rem 5rem;text-align:center}
     <div class="hz-spacer"></div>
 
     <div class="award-hl-card">
-      <div class="award-hl-img"><img src="awards/award_02_celebrating_design.jpg" alt="Houzz Best of Design award"></div>
+      <div class="award-hl-img fit-contain"><img src="awards/award_02_celebrating_design.jpg" alt="Celebrating Design Texas award for Best in Show and Commercial Hospitality"></div>
       <div class="award-hl-body">
-        <p class="press-pub">Houzz</p>
-        <h3 class="press-title">Best of Design — 5 Years</h3>
-        <p class="press-body">Recognized five consecutive times by Houzz for outstanding interior design, placing Deborah among a select group of top-rated designers nationwide.</p>
+        <p class="press-pub">Celebrating Design Texas · 2020</p>
+        <h3 class="press-title">Best in Show &amp; First Place: Commercial Hospitality</h3>
+        <p class="press-body">Congratulations to Deborah Kirk Interiors for winning Best in Show: Commercial and First Place: Commercial Hospitality for the Tillie's Project.</p>
         <span class="press-tag">Industry Award</span>
       </div>
     </div>
 
     <div class="award-hl-card">
-      <div class="award-hl-img"><img src="awards/award_08_deborah_b29_awards.jpg" alt="Best of Dripping Springs award badge"></div>
+      <div class="award-hl-img fit-contain"><img src="awards/Best-of-Dripping-Springs-Collage.jpg" alt="Best of Dripping Springs award badges for 2016, 2017, 2018, 2019, and 2021"></div>
       <div class="award-hl-body">
-        <p class="press-pub">Dripping Springs Community · 2016–2018</p>
+        <p class="press-pub">Dripping Springs Community · 2016–2021</p>
         <h3 class="press-title">Best of Dripping Springs — Interior Designer</h3>
-        <p class="press-body">Deborah Kirk Interiors is a proud recipient of "Best of Dripping Springs" in 2016, 2017, and 2018 in the Best Interior Designer category.</p>
+        <p class="press-body">Deborah Kirk Interiors is a proud recipient of "Best of Dripping Springs" in 2016, 2017, 2018, 2019, and 2021 in the Best Interior Designer category.</p>
         <span class="press-tag">Community Award</span>
       </div>
     </div>
 
     <div class="award-hl-card">
-      <div class="award-hl-img"><img src="AH.png" alt="Austin Home Magazine cover"></div>
+      <div class="award-hl-img fit-contain"><img src="AH.png" alt="Austin Home Magazine cover"></div>
       <div class="award-hl-body">
         <p class="press-pub">Austin Home Magazine</p>
         <h3 class="press-title">Featured Designer</h3>
@@ -223,17 +276,37 @@ footer{background:var(--charcoal);padding:3rem 5rem;text-align:center}
     </div>
 
     <div class="award-hl-card">
-      <div class="award-hl-img"><img src="awards/award_01_houzz_2021.png" alt="Best of Houzz 2021 for Service award"></div>
+      <div class="award-hl-img fit-contain"><img src="awards/Houzz.png" alt="Best of Houzz Service 2025 award"></div>
       <div class="award-hl-body">
-        <p class="press-pub">Houzz · January 2021</p>
-        <h3 class="press-title">Best of Houzz: Service</h3>
-        <p class="press-body">Excited to share that Deborah Kirk Interiors has won Best of Houzz 2021 for Service.</p>
+        <p class="press-pub">Houzz</p>
+        <h3 class="press-title">Best of Houzz Service — 6 Years</h3>
+        <p class="press-body">Deborah was honored with the Houzz award for exceptional service for six years — 2015, 2016, 2017, 2018, 2021, and 2025 — a distinction held by a small percentage of elite design professionals in the country.</p>
         <span class="press-tag">Industry Award</span>
       </div>
     </div>
 
     <div class="award-hl-card">
-      <div class="award-hl-img"><img src="awards/award_05_deborah_award_photo.jpg" alt="ASID Design Excellence Award"></div>
+      <div class="award-hl-img fit-contain"><img src="awards/Design Excellence 2014.png" alt="Deborah Kirk holding two 2014 ASID Design Excellence Shining Star awards"></div>
+      <div class="award-hl-body">
+        <p class="press-pub">ASID · 2014</p>
+        <h3 class="press-title">Design Excellence 2014 Winner</h3>
+        <p class="press-body">Deborah Kirk Interiors was recognized for two projects at the 2014 ASID Design Excellence Awards: Shining Star: Retail/Hospitality for Estate Rooms and Shining Star: Recreational Facilities for Sacred Oaks.</p>
+        <span class="press-tag">Industry Award</span>
+      </div>
+    </div>
+
+    <div class="award-hl-card">
+      <div class="award-hl-img fit-contain"><img src="awards/award_07_deborah_two_awards.jpg" alt="ASID Design Excellence Awards, two-time winner"></div>
+      <div class="award-hl-body">
+        <p class="press-pub">ASID · November 2016</p>
+        <h3 class="press-title">A Two-Time Design Excellence Winner</h3>
+        <p class="press-body">Deborah Kirk Interiors received two awards at the November 2016 ASID Design Excellence Awards ceremony at Laguna Gloria — Whim Floral honored in the Retail/Hospitality category, and Whit's Inn recognized in the Recreational Facility category. Both projects are part of the Whim Hospitality Family in Dripping Springs, Texas.</p>
+        <span class="press-tag">Industry Award</span>
+      </div>
+    </div>
+
+    <div class="award-hl-card">
+      <div class="award-hl-img fit-contain"><img src="awards/award_05_deborah_award_photo.jpg" alt="ASID Design Excellence Award"></div>
       <div class="award-hl-body">
         <p class="press-pub">ASID · November 2018</p>
         <h3 class="press-title">Design Excellence Award — Hospitality</h3>
@@ -243,11 +316,11 @@ footer{background:var(--charcoal);padding:3rem 5rem;text-align:center}
     </div>
 
     <div class="award-hl-card">
-      <div class="award-hl-img"><img src="awards/award_07_deborah_two_awards.jpg" alt="ASID Design Excellence Awards, two-time winner"></div>
+      <div class="award-hl-img fit-contain"><img src="awards/celebrate design 2025.png" alt="Deborah Kirk holding the Celebrating Design Texas 2025 First Place trophy"></div>
       <div class="award-hl-body">
-        <p class="press-pub">ASID · November 2016</p>
-        <h3 class="press-title">A Two-Time Design Excellence Winner</h3>
-        <p class="press-body">Deborah Kirk Interiors received two awards at the November 2016 ASID Design Excellence Awards ceremony at Laguna Gloria — Whim Floral honored in the Retail/Hospitality category, and Whit's Inn recognized in the Recreational Facility category. Both projects are part of the Whim Hospitality Family in Dripping Springs, Texas.</p>
+        <p class="press-pub">Celebrating Design Texas · 2025</p>
+        <h3 class="press-title">Celebrate Design Texas 2025 Winner</h3>
+        <p class="press-body">Congratulations to Deborah Kirk Interiors for winning First Place in the Residential: Entire Residence Under 5,000 SF category for the Double J Ranch project.</p>
         <span class="press-tag">Industry Award</span>
       </div>
     </div>
@@ -268,6 +341,9 @@ footer{background:var(--charcoal);padding:3rem 5rem;text-align:center}
 </footer>
 
 <script>
+function openDrawer(){document.getElementById('drawer').classList.add('open');document.getElementById('dOverlay').classList.add('open')}
+function closeDrawer(){document.getElementById('drawer').classList.remove('open');document.getElementById('dOverlay').classList.remove('open')}
+
 (function(){
   var track = document.getElementById('honorsGrid');
   var cards = Array.prototype.slice.call(track.querySelectorAll('.award-hl-card'));
@@ -314,7 +390,7 @@ footer{background:var(--charcoal);padding:3rem 5rem;text-align:center}
     }
   }, {passive:true});
 
-  var startIdx = Math.floor(Math.random()*cards.length);
+  var startIdx = Math.floor(cards.length/2);
   scrollToCard(cards[startIdx], true);
   updateActive();
 })();
