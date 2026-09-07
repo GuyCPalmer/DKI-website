@@ -1,3 +1,7 @@
 .DS_Store
 Thumbs.db
 *.log
+
+# Unused raw source files (too large for git / superseded by optimized versions)
+JRP_DKI_02_Drone_1002.mp4
+Bouldin Remodel 2.png
