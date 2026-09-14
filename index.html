@@ -402,33 +402,6 @@ button{font-family:'Jost',sans-serif;cursor:pointer;border:none;background:none}
 .svc-desc{font-size:15.5px;line-height:1.9;color:var(--muted)}
 @media(max-width:700px){.svc-card-img{aspect-ratio:1/1}}
 
-/* BEFORE / AFTER SLIDER CARD */
-.ba-slider{
-  position:relative;width:100%;aspect-ratio:4/3;overflow:hidden;
-  cursor:ew-resize;-webkit-user-select:none;user-select:none;touch-action:pan-y;
-}
-.ba-layer{position:absolute;inset:0}
-.ba-layer img{width:100%;height:100%;object-fit:cover;display:block;pointer-events:none;-webkit-user-drag:none}
-.ba-before{clip-path:inset(0 50% 0 0)}
-.ba-tag{
-  position:absolute;top:14px;z-index:3;
-  font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:var(--warm);
-  background:rgba(20,16,12,0.55);padding:5px 10px;pointer-events:none;
-}
-.ba-tag-before{left:14px}
-.ba-tag-after{right:14px}
-.ba-handle{
-  position:absolute;top:0;bottom:0;left:50%;width:2px;
-  background:rgba(250,248,244,0.9);transform:translateX(-50%);z-index:4;pointer-events:none;
-}
-.ba-handle-grip{
-  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
-  width:38px;height:38px;border-radius:50%;background:var(--warm);
-  display:flex;align-items:center;justify-content:center;
-  font-size:13px;color:var(--charcoal);box-shadow:0 2px 10px rgba(20,16,12,0.3);
-}
-@media(max-width:700px){.ba-slider{aspect-ratio:1/1}}
-
 /* PROCESS */
 .process{padding:6rem 5rem;background:var(--sand);border-top:0.5px solid var(--border)}
 .process-head{margin-bottom:4rem}
@@ -873,14 +846,8 @@ footer{
         <div class="svc-card-img"><img src="projects/Ranches/Big-Wells-Ranch/JRP_DKI_01_7721-Edit.jpg" alt="Full-service interior design project" loading="lazy"></div>
         <div class="svc-card-info"><p class="svc-n">01</p><h3 class="svc-title">Full-Service Design</h3><p class="svc-desc">From concept through installation — space planning, material selection, furniture sourcing, and project management to a beautifully finished home.</p></div>
       </div>
-      <div class="svc-card svc-card-ba">
-        <div class="ba-slider" id="baSlider">
-          <div class="ba-layer ba-after"><img src="Bouldin-Remodel-After.jpg" alt="Home office after renovation" loading="lazy"></div>
-          <div class="ba-layer ba-before" id="baBefore"><img src="Bouldin-Remodel-Before.jpg" alt="Room before renovation" loading="lazy"></div>
-          <span class="ba-tag ba-tag-before">Before</span>
-          <span class="ba-tag ba-tag-after">After</span>
-          <div class="ba-handle" id="baHandle"><span class="ba-handle-grip">&#8596;</span></div>
-        </div>
+      <div class="svc-card">
+        <div class="svc-card-img"><img src="Renovation and Remodel.jpg" alt="Renovation and remodel project" loading="lazy"></div>
         <div class="svc-card-info">
           <p class="svc-n">02</p><h3 class="svc-title">Renovation & Remodel</h3><p class="svc-desc">Thoughtful redesigns that honor the bones of a home while creating rooms that feel new, intentional, and entirely yours.</p>
         </div>
@@ -898,7 +865,7 @@ footer{
         <div class="svc-card-info"><p class="svc-n">05</p><h3 class="svc-title">Commercial Spaces</h3><p class="svc-desc">Designing hospitality, retail, and event venues — including ranch properties and wedding destinations — that leave a lasting impression.</p></div>
       </div>
       <div class="svc-card">
-        <div class="svc-card-img"><img src="consultation.png" alt="Design consultation project" loading="lazy"></div>
+        <div class="svc-card-img"><img src="Design Consultation.jpg" alt="Design consultation project" loading="lazy" style="object-position:center 22%"></div>
         <div class="svc-card-info"><p class="svc-n">06</p><h3 class="svc-title">Design Consultation</h3><p class="svc-desc">A focused session for homeowners who need expert guidance on a specific space, color direction, or furniture arrangement.</p></div>
       </div>
     </div>
@@ -1060,30 +1027,6 @@ window.addEventListener('scroll',()=>{
 /* ── Drawer ── */
 function openDrawer(){document.getElementById('drawer').classList.add('open');document.getElementById('dOverlay').classList.add('open')}
 function closeDrawer(){document.getElementById('drawer').classList.remove('open');document.getElementById('dOverlay').classList.remove('open')}
-
-/* ── Before/After slider ── */
-(function(){
-  const slider=document.getElementById('baSlider');
-  if(!slider)return;
-  const before=document.getElementById('baBefore');
-  const handle=document.getElementById('baHandle');
-  let dragging=false;
-  function setPos(clientX){
-    const rect=slider.getBoundingClientRect();
-    let pct=((clientX-rect.left)/rect.width)*100;
-    pct=Math.max(0,Math.min(100,pct));
-    before.style.clipPath=`inset(0 ${100-pct}% 0 0)`;
-    handle.style.left=pct+'%';
-  }
-  slider.addEventListener('pointerdown',e=>{
-    dragging=true;
-    slider.setPointerCapture(e.pointerId);
-    setPos(e.clientX);
-  });
-  slider.addEventListener('pointermove',e=>{if(dragging)setPos(e.clientX)});
-  slider.addEventListener('pointerup',()=>dragging=false);
-  slider.addEventListener('pointercancel',()=>dragging=false);
-})();
 
 /* ── Reveal ── */
 const ro=new IntersectionObserver(entries=>{
