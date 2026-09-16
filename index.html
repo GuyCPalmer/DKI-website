@@ -301,18 +301,18 @@ button{font-family:'Jost',sans-serif;cursor:pointer;border:none;background:none}
 .port-grid{
   display:grid;
   grid-template-columns:repeat(12,1fr);
+  grid-template-rows:240px 240px 240px 300px;
   grid-auto-rows:240px;
   gap:12px;
 }
 .pc{position:relative;overflow:hidden;background:var(--sand2);cursor:pointer}
 .pc:nth-child(1){grid-column:1/7;grid-row:1/3}
 .pc:nth-child(2){grid-column:7/10;grid-row:1/4}
-.pc:nth-child(3){grid-column:10/13;grid-row:1/3}
+.pc:nth-child(3){grid-column:10/13;grid-row:1/4}
 .pc:nth-child(4){grid-column:1/4;grid-row:3/4}
 .pc:nth-child(5){grid-column:4/7;grid-row:3/4}
-.pc:nth-child(6){grid-column:10/13;grid-row:3/4}
-.pc:nth-child(7){grid-column:1/7;grid-row:4/6}
-.pc:nth-child(8){grid-column:7/13;grid-row:4/6}
+.pc:nth-child(6){grid-column:1/7;grid-row:4/5}
+.pc:nth-child(7){grid-column:7/13;grid-row:4/5}
 
 .pc img{width:100%;height:100%;object-fit:cover;transition:transform 0.8s cubic-bezier(0.25,0.46,0.45,0.94),filter 0.4s;filter:brightness(0.88)}
 .pc:hover img{transform:scale(1.06);filter:brightness(1)}
@@ -633,6 +633,7 @@ footer{
   .portfolio{padding:4rem 1.5rem}
   .port-grid{grid-template-columns:1fr 1fr;grid-auto-rows:200px}
   .pc:nth-child(n){grid-column:auto;grid-row:auto}
+  .pc:last-child{grid-column:1/-1}
   .svc-grid,.steps{grid-template-columns:1fr}
   .numbers{grid-template-columns:1fr 1fr}
   .num-item{border-bottom:0.5px solid var(--border)}
@@ -784,22 +785,33 @@ footer{
       </div>
     </div>
     <div class="port-grid rv">
-      <div class="pc" data-cat="commercial" data-gallery="projects/Commercial/Tillies/DSC_2448.jpg|projects/Commercial/Tillies/DSC_2475_edited.jpg|projects/Commercial/Tillies/DSC_2482.jpg|projects/Commercial/Tillies/DSC_2487.jpg|projects/Commercial/Tillies/DSC_2510.jpg|projects/Commercial/Tillies/DSC_2589.jpg|projects/Commercial/Tillies/DSC_2600.jpg|projects/Commercial/Tillies/DSC_2625.jpg|projects/Commercial/Tillies/DSC_2694.jpg|projects/Commercial/Tillies/DSC_2730.jpg|projects/Commercial/Tillies/DSC_2743.jpg|projects/Commercial/Tillies/DSC_2794.jpg|projects/Commercial/Tillies/plates-tillies-exterior.jpg|projects/Commercial/Tillies/AK2A1087.jpg|projects/Commercial/Tillies/AK2A1093.jpg|projects/Commercial/Tillies/AK2A1096.jpg|projects/Commercial/Tillies/AK2A1099.jpg|projects/Commercial/Tillies/AK2A1101.jpg|projects/Commercial/Tillies/AK2A1107.jpg|projects/Commercial/Tillies/AK2A1109.jpg|projects/Commercial/Tillies/AK2A1114.jpg|projects/Commercial/Tillies/AK2A1115.jpg|projects/Commercial/Tillies/AK2A1122.jpg|projects/Commercial/Tillies/AK2A1128.jpg|projects/Commercial/Tillies/AK2A1133.jpg|projects/Commercial/Tillies/AK2A1138.jpg|projects/Commercial/Tillies/AK2A1139.jpg|projects/Commercial/Tillies/AK2A1146.jpg|projects/Commercial/Tillies/AK2A1149.jpg|projects/Commercial/Tillies/AK2A1156.jpg|projects/Commercial/Tillies/AK2A1159.jpg|projects/Commercial/Tillies/AK2A1169.jpg|projects/Commercial/Tillies/AK2A1172.jpg|projects/Commercial/Tillies/AK2A1185.jpg|projects/Commercial/Tillies/AK2A1189.jpg|projects/Commercial/Tillies/AK2A1195.jpg|projects/Commercial/Tillies/AK2A1442.jpg|projects/Commercial/Tillies/AK2A1448.jpg|projects/Commercial/Tillies/DSC_2787.jpg">
-        <img src="projects/Commercial/Tillies/Tillies.png" alt="Tillie's" loading="lazy">
+      <div class="pc" data-cat="commercial" data-gallery="projects/Commercial/1-Tillies/DSC_2448.jpg|projects/Commercial/1-Tillies/DSC_2475_edited.jpg|projects/Commercial/1-Tillies/DSC_2482.jpg|projects/Commercial/1-Tillies/DSC_2487.jpg|projects/Commercial/1-Tillies/DSC_2510.jpg|projects/Commercial/1-Tillies/DSC_2589.jpg|projects/Commercial/1-Tillies/DSC_2600.jpg|projects/Commercial/1-Tillies/DSC_2625.jpg|projects/Commercial/1-Tillies/DSC_2694.jpg|projects/Commercial/1-Tillies/DSC_2730.jpg|projects/Commercial/1-Tillies/DSC_2743.jpg|projects/Commercial/1-Tillies/DSC_2794.jpg|projects/Commercial/1-Tillies/plates-tillies-exterior.jpg|projects/Commercial/1-Tillies/AK2A1087.jpg|projects/Commercial/1-Tillies/AK2A1093.jpg|projects/Commercial/1-Tillies/AK2A1096.jpg|projects/Commercial/1-Tillies/AK2A1099.jpg|projects/Commercial/1-Tillies/AK2A1101.jpg|projects/Commercial/1-Tillies/AK2A1107.jpg|projects/Commercial/1-Tillies/AK2A1109.jpg|projects/Commercial/1-Tillies/AK2A1114.jpg|projects/Commercial/1-Tillies/AK2A1115.jpg|projects/Commercial/1-Tillies/AK2A1122.jpg|projects/Commercial/1-Tillies/AK2A1128.jpg|projects/Commercial/1-Tillies/AK2A1133.jpg|projects/Commercial/1-Tillies/AK2A1138.jpg|projects/Commercial/1-Tillies/AK2A1139.jpg|projects/Commercial/1-Tillies/AK2A1146.jpg|projects/Commercial/1-Tillies/AK2A1149.jpg|projects/Commercial/1-Tillies/AK2A1156.jpg|projects/Commercial/1-Tillies/AK2A1159.jpg|projects/Commercial/1-Tillies/AK2A1169.jpg|projects/Commercial/1-Tillies/AK2A1172.jpg|projects/Commercial/1-Tillies/AK2A1185.jpg|projects/Commercial/1-Tillies/AK2A1189.jpg|projects/Commercial/1-Tillies/AK2A1195.jpg|projects/Commercial/1-Tillies/AK2A1442.jpg|projects/Commercial/1-Tillies/AK2A1448.jpg|projects/Commercial/1-Tillies/DSC_2787.jpg">
+        <img src="projects/Commercial/1-Tillies/Tillies.png" alt="Tillie's" loading="lazy">
         <div class="pc-veil"></div>
         <div class="pc-info"><p class="pc-cat">Commercial</p><h3 class="pc-title">Tillie&#39;s</h3></div>
       </div>
-      <div class="pc" data-cat="commercial" data-gallery="projects/Commercial/Cottages-and-Luxe-Cottage/CampLucy-Aug2017-10.jpg|projects/Commercial/Cottages-and-Luxe-Cottage/CampLucy-Aug2017-11.jpg|projects/Commercial/Cottages-and-Luxe-Cottage/CampLucy-Aug2017-12.jpg|projects/Commercial/Cottages-and-Luxe-Cottage/CampLucy-Aug2017-15.jpg|projects/Commercial/Cottages-and-Luxe-Cottage/CampLucy-Aug2017-16.jpg|projects/Commercial/Cottages-and-Luxe-Cottage/CampLucy-Aug2017-17.jpg|projects/Commercial/Cottages-and-Luxe-Cottage/CampLucy-Aug2017-18.jpg|projects/Commercial/Cottages-and-Luxe-Cottage/CampLucy-Aug2017-19.jpg|projects/Commercial/Cottages-and-Luxe-Cottage/CampLucy-Aug2017-2.jpg|projects/Commercial/Cottages-and-Luxe-Cottage/CampLucy-Aug2017-20.jpg|projects/Commercial/Cottages-and-Luxe-Cottage/CampLucy-Aug2017-21.jpg|projects/Commercial/Cottages-and-Luxe-Cottage/CampLucy-Aug2017-22.jpg|projects/Commercial/Cottages-and-Luxe-Cottage/CampLucy-Aug2017-23.jpg|projects/Commercial/Cottages-and-Luxe-Cottage/CampLucy-Aug2017-24.jpg|projects/Commercial/Cottages-and-Luxe-Cottage/CampLucy-Aug2017-25.jpg|projects/Commercial/Cottages-and-Luxe-Cottage/CampLucy-Aug2017-26.jpg|projects/Commercial/Cottages-and-Luxe-Cottage/CampLucy-Aug2017-27.jpg|projects/Commercial/Cottages-and-Luxe-Cottage/CampLucy-Aug2017-29.jpg|projects/Commercial/Cottages-and-Luxe-Cottage/CampLucy-Aug2017-3.jpg|projects/Commercial/Cottages-and-Luxe-Cottage/CampLucy-Aug2017-30.jpg|projects/Commercial/Cottages-and-Luxe-Cottage/CampLucy-Aug2017-31.jpg|projects/Commercial/Cottages-and-Luxe-Cottage/CampLucy-Aug2017-32.jpg|projects/Commercial/Cottages-and-Luxe-Cottage/CampLucy-Aug2017-47.jpg|projects/Commercial/Cottages-and-Luxe-Cottage/CampLucy-Aug2017-49.jpg|projects/Commercial/Cottages-and-Luxe-Cottage/CampLucy-Aug2017-5.jpg|projects/Commercial/Cottages-and-Luxe-Cottage/CampLucy-Aug2017-53.jpg|projects/Commercial/Cottages-and-Luxe-Cottage/CampLucy-Aug2017-6.jpg|projects/Commercial/Cottages-and-Luxe-Cottage/CampLucy-Aug2017-67.jpg|projects/Commercial/Cottages-and-Luxe-Cottage/CampLucy-Aug2017-7.jpg|projects/Commercial/Cottages-and-Luxe-Cottage/CampLucy-Aug2017-8.jpg|projects/Commercial/Cottages-and-Luxe-Cottage/CampLucy-Aug2017-83.jpg|projects/Commercial/Cottages-and-Luxe-Cottage/CampLucy-Aug2017-9.jpg|projects/Commercial/Cottages-and-Luxe-Cottage/CampLucy-Aug2017.jpg|projects/Commercial/Cottages-and-Luxe-Cottage/CampLucyCottageMarch2019-11.jpg|projects/Commercial/Cottages-and-Luxe-Cottage/Lux-Bath.jpg">
-        <img src="projects/Commercial/Cottages-and-Luxe-Cottage/Lux-Bath.jpg" alt="Cottages-The Vistas" loading="lazy">
+      <div class="pc" data-cat="commercial" data-gallery="projects/Commercial/2-The Vistas/2 - CampLucy-Aug2017-47.jpg|projects/Commercial/2-The Vistas/3 - CampLucy-Aug2017-23.jpg|projects/Commercial/2-The Vistas/4 - CampLucy-Aug2017-22.jpg|projects/Commercial/2-The Vistas/5 - CampLucy-Aug2017-20.jpg|projects/Commercial/2-The Vistas/6 - CampLucy-Aug2017-27.jpg|projects/Commercial/2-The Vistas/7 - CampLucy-Aug2017-30.jpg|projects/Commercial/2-The Vistas/8 - CampLucy-Aug2017-32.jpg|projects/Commercial/2-The Vistas/9 - CampLucy-Aug2017-31.jpg|projects/Commercial/2-The Vistas/10 - CampLucy-Aug2017-67.jpg">
+        <img src="projects/Commercial/2-The Vistas/1 - CampLucy-Aug2017-49.jpg" alt="The Vistas" loading="lazy">
         <div class="pc-veil"></div>
-        <div class="pc-info"><p class="pc-cat">Commercial</p><h3 class="pc-title">Cottages-The Vistas</h3></div>
+        <div class="pc-info"><p class="pc-cat">Commercial</p><h3 class="pc-title">The Vistas</h3></div>
       </div>
 
-
-      <div class="pc" data-cat="commercial" data-gallery="projects/Commercial/Treetops/AK2A7973.jpg|projects/Commercial/Treetops/AK2A8036.jpg|projects/Commercial/Treetops/AK2A8039.jpg|projects/Commercial/Treetops/AK2A7999.jpg|projects/Commercial/Treetops/AK2A8007.jpg|projects/Commercial/Treetops/AK2A8015.jpg|projects/Commercial/Treetops/AK2A8025.jpg|projects/Commercial/Treetops/AK2A8030.jpg|projects/Commercial/Treetops/AK2A8033.jpg|projects/Commercial/Treetops/living-room-3-.jpg|projects/Commercial/Treetops/living-room-4-.jpg|projects/Commercial/Treetops/living-room-6-.jpg|projects/Commercial/Cottages-Phase-3/living-room-1-.jpg|projects/Commercial/Cottages-Phase-3/living-room-3-.jpg|projects/Commercial/Cottages-Phase-3/living-room-4-.jpg|projects/Commercial/Cottages-Phase-3/living-room-5-.jpg|projects/Commercial/Cottages-Phase-3/living-room-6-.jpg|projects/Commercial/Cottages-Phase-3/living-room-7-.jpg|projects/Commercial/Cottages-Phase-3/living-room-detail-.jpg|projects/Commercial/Treetops/AK2A7906.jpg|projects/Commercial/Treetops/AK2A7910.jpg|projects/Commercial/Treetops/AK2A7867.jpg|projects/Commercial/Treetops/AK2A7888.jpg|projects/Commercial/Treetops/AK2A7889.jpg|projects/Commercial/Treetops/AK2A7892.jpg|projects/Commercial/Treetops/AK2A7985.jpg|projects/Commercial/Treetops/AK2A7989.jpg|projects/Commercial/Treetops/AK2A7991.jpg|projects/Commercial/Treetops/bedroom-wide-.jpg|projects/Commercial/Cottages-Phase-3/bedroom-4-.jpg|projects/Commercial/Cottages-Phase-3/bedroom-4-_edited.jpg|projects/Commercial/Cottages-Phase-3/bedroom-detail-2-_edited.jpg|projects/Commercial/Cottages-Phase-3/bedroom-wide-.jpg|projects/Commercial/Treetops/AK2A7929.jpg|projects/Commercial/Treetops/AK2A7959.jpg|projects/Commercial/Treetops/AK2A7963.jpg|projects/Commercial/Treetops/AK2A7975.jpg|projects/Commercial/Treetops/AK2A7978.jpg|projects/Commercial/Treetops/AK2A7982.jpg|projects/Commercial/Cottages-Phase-3/bathroom--.jpg|projects/Commercial/Cottages-Phase-3/bathroom-3-.jpg|projects/Commercial/Cottages-Phase-3/bathroom-4-.jpg|projects/Commercial/Cottages-Phase-3/bathroom-4-_edited.jpg|projects/Commercial/Cottages-Phase-3/bathroom-5-.jpg|projects/Commercial/Cottages-Phase-3/bathroom-5-_edited.jpg|projects/Commercial/Cottages-Phase-3/bathroom-7-.jpg|projects/Commercial/Cottages-Phase-3/bathroom-8-.jpg|projects/Commercial/Treetops/AK2A7920.jpg|projects/Commercial/Cottages-Phase-3/door-detail-.jpg|projects/Commercial/Cottages-Phase-3/door.jpg|projects/Commercial/Cottages-Phase-3/light-detail-.jpg|projects/Commercial/Cottages-Phase-3/wall-detail-.jpg">
-        <img src="projects/Commercial/Treetops/AK2A7994.jpg" alt="Camp Lucy Treetops" loading="lazy">
+      <div class="pc" data-cat="commercial" data-gallery="projects/Commercial/3-Terrace Suites/1- CampLucy-Aug2017-2.jpg|projects/Commercial/3-Terrace Suites/2 - CampLucy-Aug2017-15.jpg|projects/Commercial/3-Terrace Suites/3 - Camp Lucy .jpg|projects/Commercial/3-Terrace Suites/4 - CampLucy-Aug2017-11.jpg|projects/Commercial/3-Terrace Suites/5 - CampLucy-Aug2017-8.jpg|projects/Commercial/3-Terrace Suites/6 - CampLucy-Aug2017.jpg|projects/Commercial/3-Terrace Suites/7 - CampLucy-Aug2017-7.jpg|projects/Commercial/3-Terrace Suites/9 - CampLucy-Aug2017-5.jpg|projects/Commercial/3-Terrace Suites/10 - CampLucy-Aug2017-6.jpg|projects/Commercial/3-Terrace Suites/11 - CampLucy-Aug2017-3.jpg">
+        <img src="projects/Commercial/3-Terrace Suites/8 - Lux-Bath.jpg" alt="Terrace Suites" loading="lazy">
         <div class="pc-veil"></div>
-        <div class="pc-info"><p class="pc-cat">Commercial</p><h3 class="pc-title">Camp Lucy Treetops</h3></div>
+        <div class="pc-info"><p class="pc-cat">Commercial</p><h3 class="pc-title">Terrace Suites</h3></div>
+      </div>
+
+      <div class="pc" data-cat="commercial" data-gallery="projects/Commercial/4-Treetops/1-AK2A7973.jpg|projects/Commercial/4-Treetops/2-AK2A7892.jpg|projects/Commercial/4-Treetops/3-AK2A7867.jpg|projects/Commercial/4-Treetops/5-AK2A7910.jpg|projects/Commercial/4-Treetops/6-bedroom-4-.jpg|projects/Commercial/4-Treetops/7-bedroom-wide--cottage.jpg|projects/Commercial/4-Treetops/8-bathroom-3-.jpg|projects/Commercial/4-Treetops/9-AK2A7929.jpg">
+        <img src="projects/Commercial/4-Treetops/4-AK2A7889.jpg" alt="Treetops" loading="lazy">
+        <div class="pc-veil"></div>
+        <div class="pc-info"><p class="pc-cat">Commercial</p><h3 class="pc-title">Treetops</h3></div>
+      </div>
+
+      <div class="pc" data-cat="commercial" data-gallery="projects/Commercial/5-English Suites/1 - AK2A8007.jpg|projects/Commercial/5-English Suites/2 - living-room-6--cottage.jpg|projects/Commercial/5-English Suites/3 - living-room-3-.jpg|projects/Commercial/5-English Suites/4 - living-room-7-.jpg|projects/Commercial/5-English Suites/5 - living-room-detail-.jpg|projects/Commercial/5-English Suites/6 - AK2A8033.jpg|projects/Commercial/5-English Suites/7 - AK2A7994.jpg|projects/Commercial/5-English Suites/8 - bedroom-detail-2-_edited.jpg|projects/Commercial/5-English Suites/9 - AK2A7991.jpg|projects/Commercial/5-English Suites/10 - AK2A7975.jpg|projects/Commercial/5-English Suites/11 - AK2A7982.jpg|projects/Commercial/5-English Suites/12 - AK2A8039.jpg|projects/Commercial/5-English Suites/13 - AK2A8036.jpg">
+        <img src="projects/Commercial/5-English Suites/0 - .jpg" alt="English Suites" loading="lazy">
+        <div class="pc-veil"></div>
+        <div class="pc-info"><p class="pc-cat">Commercial</p><h3 class="pc-title">English Suites</h3></div>
       </div>
 
       <div class="pc" data-cat="ranch" data-gallery="projects/Ranches/Big-Wells-Ranch/JRP_DKI_01_7748-Edit.jpg|projects/Ranches/Big-Wells-Ranch/JRP_DKI_01_7762-Edit.jpg|projects/Ranches/Big-Wells-Ranch/JRP_DKI_01_7788-Edit.jpg|projects/Ranches/Big-Wells-Ranch/JRP_DKI_01_7813-Edit.jpg|projects/Ranches/Big-Wells-Ranch/JRP_DKI_01_7862-Edit.jpg|projects/Ranches/Big-Wells-Ranch/JRP_DKI_01_7864-Edit.jpg|projects/Ranches/Big-Wells-Ranch/JRP_DKI_01_7873-Edit.jpg|projects/Ranches/Big-Wells-Ranch/JRP_DKI_01_7899-Edit.jpg|projects/Ranches/Big-Wells-Ranch/JRP_DKI_01_7916-Edit.jpg|projects/Ranches/Big-Wells-Ranch/JRP_DKI_01_7928-Edit.jpg|projects/Ranches/Big-Wells-Ranch/JRP_DKI_01_7969-Edit.jpg|projects/Ranches/Big-Wells-Ranch/JRP_DKI_01_8001-Edit.jpg|projects/Ranches/Big-Wells-Ranch/JRP_DKI_01_8013-Edit.jpg|projects/Ranches/Big-Wells-Ranch/JRP_DKI_01_8021-Edit.jpg|projects/Ranches/Big-Wells-Ranch/JRP_DKI_01_8072-Edit.jpg|projects/Ranches/Big-Wells-Ranch/JRP_DKI_01_8089-Edit.jpg|projects/Ranches/Big-Wells-Ranch/JRP_DKI_01_8101-Edit.jpg|projects/Ranches/Big-Wells-Ranch/JRP_DKI_01_8121-Edit.jpg|projects/Ranches/Big-Wells-Ranch/JRP_DKI_02_1001-Edit.jpg|projects/Ranches/Big-Wells-Ranch/JRP_DKI_02_1002-Edit.jpg|projects/Ranches/Big-Wells-Ranch/JRP_DKI_02_1003-Edit.jpg|projects/Ranches/Big-Wells-Ranch/JRP_DKI_02_1004-Edit.jpg|projects/Ranches/Big-Wells-Ranch/JRP_DKI_02_1006-Edit.jpg|projects/Ranches/Big-Wells-Ranch/JRP_DKI_02_1007-Edit.jpg|projects/Ranches/Big-Wells-Ranch/JRP_DKI_02_1008-Edit.jpg|projects/Ranches/Big-Wells-Ranch/JRP_DKI_02_1010-Edit.jpg|projects/Ranches/Big-Wells-Ranch/JRP_DKI_02_1011-Edit.jpg|projects/Ranches/Big-Wells-Ranch/JRP_DKI_02_1012-Edit.jpg|projects/Ranches/Big-Wells-Ranch/JRP_DKI_02_1013-Edit.jpg|projects/Ranches/Big-Wells-Ranch/JRP_DKI_02_1016-Edit.jpg|projects/Ranches/Big-Wells-Ranch/JRP_DKI_02_1018-Edit.jpg|projects/Ranches/Big-Wells-Ranch/JRP_DKI_02_1024-Edit.jpg|projects/Ranches/Big-Wells-Ranch/JRP_DKI_02_1026-Edit.jpg|projects/Ranches/Big-Wells-Ranch/JRP_DKI_02_1028-Edit.jpg|projects/Ranches/Big-Wells-Ranch/JRP_DKI_02_1030-Edit.jpg|projects/Ranches/Big-Wells-Ranch/JRP_DKI_02_1031-Edit.jpg|projects/Ranches/Big-Wells-Ranch/JRP_DKI_02_1032-Edit.jpg|projects/Ranches/Big-Wells-Ranch/JRP_DKI_02_1037-Edit.jpg|projects/Ranches/Big-Wells-Ranch/JRP_DKI_02_1038-Edit.jpg">
@@ -808,27 +820,10 @@ footer{
         <div class="pc-info"><p class="pc-cat">Ranch</p><h3 class="pc-title">Big Wells Ranch</h3></div>
       </div>
 
-      <div class="pc" data-cat="ranch" data-gallery="projects/Ranches/Indianhead-Ranch/Living-Room-Lights-On.jpg|projects/Ranches/Indianhead-Ranch/Kitchen.jpg|projects/Ranches/Indianhead-Ranch/Kitchen-2.jpg|projects/Ranches/Indianhead-Ranch/Bar.jpg|projects/Ranches/Indianhead-Ranch/Front-Exterior.jpg|projects/Ranches/Indianhead-Ranch/Front-Exterior-Detail.jpg|projects/Ranches/Indianhead-Ranch/Butlers-Pantry.jpg|projects/Ranches/Indianhead-Ranch/Powder-Room.jpg|projects/Ranches/Indianhead-Ranch/Outdoor-Fireplace-V2.jpg|projects/Ranches/Indianhead-Ranch/Pool-Deck.jpg|projects/Ranches/Indianhead-Ranch/Pool-Breezeway-Lights-On.jpg|projects/Ranches/Indianhead-Ranch/Primary Bedroom Lights On.jpg|projects/Ranches/Indianhead-Ranch/Primary-Bathtub-Lights-On.jpg|projects/Ranches/Indianhead-Ranch/Primary-Bath-Vanity-Lights-On.jpg|projects/Ranches/Indianhead-Ranch/Tower-Ceiling-Detail.jpg|projects/Ranches/Indianhead-Ranch/Barn-Exterior.jpg|projects/Ranches/Indianhead-Ranch/Barn-Interior.jpg|projects/Ranches/Indianhead-Ranch/Indianhead Barn Kitchen.JPG|projects/Ranches/Indianhead-Ranch/Indianhead Barn Bar.jpg|projects/Ranches/Indianhead-Ranch/Barn-Patio.jpg|projects/Ranches/Indianhead-Ranch/Casitas-Exterior.jpg|projects/Ranches/Indianhead-Ranch/Casita-Interior.jpg">
-        <img src="projects/Ranches/Indianhead-Ranch/Dining-Room-Lights-On.jpg" alt="Indianhead Ranch" loading="lazy">
+      <div class="pc" data-cat="ranch" data-gallery="projects/Ranches/Indianhead-Ranch/Dining-Room-Lights-On.jpg|projects/Ranches/Indianhead-Ranch/Kitchen.jpg|projects/Ranches/Indianhead-Ranch/Kitchen-2.jpg|projects/Ranches/Indianhead-Ranch/Bar.jpg|projects/Ranches/Indianhead-Ranch/Front-Exterior.jpg|projects/Ranches/Indianhead-Ranch/Front-Exterior-Detail.jpg|projects/Ranches/Indianhead-Ranch/Butlers-Pantry.jpg|projects/Ranches/Indianhead-Ranch/Powder-Room.jpg|projects/Ranches/Indianhead-Ranch/Outdoor-Fireplace-V2.jpg|projects/Ranches/Indianhead-Ranch/Pool-Deck.jpg|projects/Ranches/Indianhead-Ranch/Pool-Breezeway-Lights-On.jpg|projects/Ranches/Indianhead-Ranch/Primary Bedroom Lights On.jpg|projects/Ranches/Indianhead-Ranch/Primary-Bathtub-Lights-On.jpg|projects/Ranches/Indianhead-Ranch/Primary-Bath-Vanity-Lights-On.jpg|projects/Ranches/Indianhead-Ranch/Tower-Ceiling-Detail.jpg|projects/Ranches/Indianhead-Ranch/Barn-Exterior.jpg|projects/Ranches/Indianhead-Ranch/Barn-Interior.jpg|projects/Ranches/Indianhead-Ranch/Indianhead Barn Kitchen.JPG|projects/Ranches/Indianhead-Ranch/Indianhead Barn Bar.jpg|projects/Ranches/Indianhead-Ranch/Barn-Patio.jpg|projects/Ranches/Indianhead-Ranch/Casitas-Exterior.jpg|projects/Ranches/Indianhead-Ranch/Casita-Interior.jpg">
+        <img src="projects/Ranches/Indianhead-Ranch/Living-Room-Lights-On.jpg" alt="Indianhead Ranch" loading="lazy" style="object-position:center 100%">
         <div class="pc-veil"></div>
         <div class="pc-info"><p class="pc-cat">Ranch</p><h3 class="pc-title">Indianhead Ranch</h3></div>
-      </div>
-
-      <div class="pc" data-cat="commercial" data-gallery="projects/Commercial/Bouldin/AK2A8745-2.jpg|projects/Commercial/Bouldin/AK2A8756.jpg|projects/Commercial/Bouldin/AK2A8757.jpg|projects/Commercial/Bouldin/AK2A8762.jpg|projects/Commercial/Bouldin/AK2A8764-2.jpg|projects/Commercial/Bouldin/AK2A8769.jpg|projects/Commercial/Bouldin/AK2A8782.jpg|projects/Commercial/Bouldin/AK2A8785.jpg|projects/Commercial/Bouldin/AK2A8788-2.jpg|projects/Commercial/Bouldin/AK2A8792.jpg|projects/Commercial/Bouldin/AK2A8798.jpg|projects/Commercial/Bouldin/AK2A8799.jpg|projects/Commercial/Bouldin/AK2A8801.jpg|projects/Commercial/Bouldin/AK2A8813.jpg|projects/Commercial/Bouldin/AK2A8816.jpg|projects/Commercial/Bouldin/AK2A8819.jpg|projects/Commercial/Bouldin/AK2A8821.jpg|projects/Commercial/Bouldin/AK2A8828.jpg|projects/Commercial/Bouldin/AK2A8833.jpg|projects/Commercial/Bouldin/AK2A8835.jpg|projects/Commercial/Bouldin/AK2A8840.jpg|projects/Commercial/Bouldin/AK2A8842.jpg|projects/Commercial/Bouldin/AK2A8848.jpg|projects/Commercial/Bouldin/AK2A8852.jpg|projects/Commercial/Bouldin/AK2A8854.jpg|projects/Commercial/Bouldin/AK2A8857.jpg|projects/Commercial/Bouldin/AK2A8862.jpg|projects/Commercial/Bouldin/AK2A8873.jpg|projects/Commercial/Bouldin/AK2A8879.jpg">
-        <img src="projects/Commercial/Bouldin/AK2A8771.jpg" alt="Bouldin" loading="lazy">
-        <div class="pc-veil"></div>
-        <div class="pc-info"><p class="pc-cat">Commercial</p><h3 class="pc-title">Bouldin</h3></div>
-      </div>
-
-      <div class="pc" data-cat="residential" data-gallery="projects/Residential/Forest-View/2.jpg|projects/Residential/Forest-View/3.jpg|projects/Residential/Forest-View/4.jpg|projects/Residential/Forest-View/5.jpg|projects/Residential/Forest-View/6.jpg|projects/Residential/Forest-View/7.jpg|projects/Residential/Forest-View/8.jpg|projects/Residential/Forest-View/9.jpg|projects/Residential/Forest-View/10.jpg|projects/Residential/Forest-View/11.jpg|projects/Residential/Forest-View/12.jpg|projects/Residential/Forest-View/13.jpg|projects/Residential/Forest-View/14.jpg|projects/Residential/Forest-View/15.jpg|projects/Residential/Forest-View/16.jpg">
-        <img src="projects/Residential/Forest-View/1.jpg" alt="Forest View residence kitchen" loading="lazy">
-        <div class="pc-veil"></div>
-        <div class="pc-info"><p class="pc-cat">Residential</p><h3 class="pc-title">Forest View</h3></div>
-      </div>
-      <div class="pc" data-cat="residential" data-gallery="projects/Residential/Rivercrest/1.jpg">
-        <img src="projects/Residential/Rivercrest/2.jpg" alt="Rivercrest residence primary bathroom" loading="lazy">
-        <div class="pc-veil"></div>
-        <div class="pc-info"><p class="pc-cat">Residential</p><h3 class="pc-title">Rivercrest</h3></div>
       </div>
 
     </div>
@@ -847,13 +842,13 @@ footer{
         <div class="svc-card-info"><p class="svc-n">01</p><h3 class="svc-title">Full-Service Design</h3><p class="svc-desc">From concept through installation — space planning, material selection, furniture sourcing, and project management to a beautifully finished home.</p></div>
       </div>
       <div class="svc-card">
-        <div class="svc-card-img"><img src="Renovation and Remodel.jpg" alt="Renovation and remodel project" loading="lazy"></div>
+        <div class="svc-card-img"><img src="Renovation and Remodel.jpg" alt="Renovation and remodel project" loading="lazy" style="object-position:center 100%"></div>
         <div class="svc-card-info">
           <p class="svc-n">02</p><h3 class="svc-title">Renovation & Remodel</h3><p class="svc-desc">Thoughtful redesigns that honor the bones of a home while creating rooms that feel new, intentional, and entirely yours.</p>
         </div>
       </div>
       <div class="svc-card">
-        <div class="svc-card-img"><img src="projects/Commercial/Cottages-Phase-3/wall-detail-.jpg" alt="Antique curation project" loading="lazy"></div>
+        <div class="svc-card-img"><img src="projects/Commercial/3-Terrace Suites/6 - CampLucy-Aug2017.jpg" alt="Antique curation project" loading="lazy"></div>
         <div class="svc-card-info"><p class="svc-n">03</p><h3 class="svc-title">Antique Curation</h3><p class="svc-desc">Sourcing and integrating antiques, architecturals, and gathered objects that give each room depth, warmth, and a sense of story.</p></div>
       </div>
       <div class="svc-card">
@@ -861,7 +856,7 @@ footer{
         <div class="svc-card-info"><p class="svc-n">04</p><h3 class="svc-title">New Construction</h3><p class="svc-desc">Collaborating with architects and builders from the ground up to ensure every interior decision is made with intention and coherence.</p></div>
       </div>
       <div class="svc-card">
-        <div class="svc-card-img"><img src="projects/Commercial/Tillies/DSC_2432.jpg" alt="Commercial space design project" loading="lazy"></div>
+        <div class="svc-card-img"><img src="projects/Commercial/1-Tillies/DSC_2432.jpg" alt="Commercial space design project" loading="lazy"></div>
         <div class="svc-card-info"><p class="svc-n">05</p><h3 class="svc-title">Commercial Spaces</h3><p class="svc-desc">Designing hospitality, retail, and event venues — including ranch properties and wedding destinations — that leave a lasting impression.</p></div>
       </div>
       <div class="svc-card">
@@ -1116,101 +1111,6 @@ if(inquiryForm){
   });
 }
 })();
-
-/* ── Calendar ── */
-const AVAIL_DOW=[1,2,3,4]; // Mon-Thu
-const TIMES=['9:00 AM','10:00 AM','11:00 AM','1:00 PM','2:00 PM','3:00 PM','4:00 PM'];
-const BLOCKED=['10:00 AM','2:00 PM'];
-const MONTHS=['January','February','March','April','May','June','July','August','September','October','November','December'];
-const now=new Date();
-let cYear=now.getFullYear(),cMonth=now.getMonth();
-let selDate=null,selTime=null;
-
-function renderCal(){
-  document.getElementById('calMonthLabel').textContent=`${MONTHS[cMonth]} ${cYear}`;
-  const container=document.getElementById('calDays');
-  container.innerHTML='';
-  const first=new Date(cYear,cMonth,1).getDay();
-  const days=new Date(cYear,cMonth+1,0).getDate();
-  const today=new Date(now.getFullYear(),now.getMonth(),now.getDate());
-
-  for(let i=0;i<first;i++){
-    const d=document.createElement('div');d.className='cal-d emp';container.appendChild(d);
-  }
-  for(let n=1;n<=days;n++){
-    const date=new Date(cYear,cMonth,n);
-    const dow=date.getDay();
-    const past=date<today;
-    const avail=AVAIL_DOW.includes(dow)&&!past;
-    const isSel=selDate&&selDate.getTime()===date.getTime();
-    const isToday=date.getTime()===today.getTime();
-    const d=document.createElement('div');
-    d.className='cal-d'+(past?' past':'')+(avail?' avail':'')+(isSel?' sel':'')+(isToday&&!isSel?' today':'');
-    d.textContent=n;
-    if(avail)d.onclick=()=>pickDate(date);
-    container.appendChild(d);
-  }
-}
-
-function pickDate(date){
-  selDate=date;selTime=null;
-  renderCal();
-  renderSlots();
-  document.getElementById('slotsWrap').style.display='block';
-  updateSummary();
-}
-
-function renderSlots(){
-  const g=document.getElementById('slotsGrid');g.innerHTML='';
-  TIMES.forEach(t=>{
-    const blocked=BLOCKED.includes(t);
-    const sel=t===selTime;
-    const el=document.createElement('div');
-    el.className='slot'+(blocked?' taken':'')+(sel?' sel':'');
-    el.textContent=t;
-    if(!blocked)el.onclick=()=>pickTime(t);
-    g.appendChild(el);
-  });
-}
-
-function pickTime(t){selTime=t;renderSlots();updateSummary()}
-
-function updateSummary(){
-  const bar=document.getElementById('summBar');
-  bar.classList.add('show');
-  if(selDate)document.getElementById('sDate').textContent=selDate.toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric'});
-  if(selTime)document.getElementById('sTime').textContent=selTime;
-}
-
-function updateType(){
-  const v=document.getElementById('bsvc').value;
-  document.getElementById('sType').textContent=v||'—';
-  document.getElementById('summBar').classList.add('show');
-}
-
-function changeMonth(dir){
-  cMonth+=dir;
-  if(cMonth>11){cMonth=0;cYear++}
-  if(cMonth<0){cMonth=11;cYear--}
-  renderCal();
-}
-
-renderCal();
-
-/* ── Submit ── */
-function submitBook(){
-  const fn=document.getElementById('bfn').value.trim();
-  const em=document.getElementById('bem').value.trim();
-  if(!fn||!em){alert('Please enter your name and email.');return}
-  if(!selDate||!selTime){alert('Please select a date and time.');return}
-  const ds=selDate.toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric',year:'numeric'});
-  const svc=document.getElementById('bsvc').value||'Consultation';
-  document.getElementById('confirmDetail').textContent=`${svc} · ${ds} at ${selTime}`;
-  document.getElementById('bookingLayout').style.display='none';
-  const c=document.getElementById('confirmWrap');
-  c.classList.add('show');
-  c.scrollIntoView({behavior:'smooth',block:'center'});
-}
 </script>
 
 </body>
